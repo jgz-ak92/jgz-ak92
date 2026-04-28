@@ -1,11 +1,11 @@
-⁸<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
- 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alte Kameraden</title>
   <meta name="description" content="Offizielle Website des Jägerzugs Alte Kameraden." />
+
   <style>
     :root {
       --green: #0f3d2e;
@@ -15,6 +15,11 @@
       --dark: #1e1e1e;
       --muted: #666;
       --white: #ffffff;
+    }
+
+    @font-face {
+      font-family: 'OldLondon';
+      src: url('OldLondon.ttf') format('truetype');
     }
 
     * {
@@ -47,23 +52,12 @@
 
     nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       max-width: 1100px;
       width: 100%;
       margin: 0 auto;
       padding: 24px 20px;
-    }
-   
- @font-face {
-  font-family: 'OldLondon';
-  src: url('OldLondon.ttf')format('truetype');
-  }
-    .logo {
-      font-weight: 800;
-      letter-spacing: 1px;
-      font-size: 1.1rem;
-      color: var(--gold);
     }
 
     .nav-links {
@@ -72,76 +66,79 @@
       font-size: 0.95rem;
     }
 
-   
     .nav-links a:hover {
       color: var(--gold);
     }
 
-    .old-english {
-  font-family: 'OldLondon', cursive;
-  color: black;
-  font-size: clamp(3rem, 8vw, 6.5rem);
-  font-weight: bold;
-  letter-spacing: 1px;
-  line-height: 1;
-}
-.title-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
-.title-row h1 {
-  margin: 0;
-  line-height: 1;
-}
-
-.title-logo {
-  width: clamp(90px, 18vw, 190px);
-  height: auto;
-  flex-shrink: 0;
-}
-   
     .hero {
       flex: 1;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 40px;
+      justify-content: center;
       max-width: 1100px;
       width: 100%;
       margin: 0 auto;
       padding: 40px 20px 80px;
     }
-   
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 4px; /* Abstand zwischen allen Elementen */
-}
 
-h1 {
-  margin: 0;
-  line-height: 1.1;
-}
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
 
-.badge {background: rgba(214, 168, 79, 0.15);
-  color: #f5d27a;
-   align-self: center;
-   text-align: center;
-  border: 1px solid #d6a84f;
-  box-shadow: 0 0 10px rgba(214, 168, 79, 0.3);
-  margin: 0;
-  padding: 6px 14px;
-}
-    
+    .hero-heading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      width: 100%;
+    }
+
+    .title-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .badge {
+      background: rgba(214, 168, 79, 0.15);
+      color: #f5d27a;
+      border: 1px solid #d6a84f;
+      box-shadow: 0 0 10px rgba(214, 168, 79, 0.3);
+      padding: 6px 14px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    h1 {
+      margin: -6px 0 -4px;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .old-english {
+      font-family: 'OldLondon', cursive;
+      color: black;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: bold;
+      letter-spacing: 1px;
+      line-height: 0.95;
+    }
+
+    .title-logo {
+      width: clamp(90px, 16vw, 180px);
+      height: auto;
+      flex-shrink: 0;
+    }
 
     .hero p {
       font-size: 1.25rem;
       color: #f2f2f2;
+      margin-top: 26px;
       margin-bottom: 32px;
       max-width: 640px;
     }
@@ -149,6 +146,7 @@ h1 {
     .button-row {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 14px;
     }
 
@@ -252,48 +250,30 @@ h1 {
     }
 
     .event {
-  display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
-  gap: 28px;
-  background: var(--white);
-  border-radius: 18px;
-  padding: 18px;
-  border-left: 6px solid var(--gold);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-}
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 28px;
+      background: var(--white);
+      border-radius: 18px;
+      padding: 18px;
+      border-left: 6px solid var(--gold);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
 
-.event-date {
-  white-space: nowrap;
-  font-weight: 800;
-  color: var(--green);
-}
+    .event-date {
+      white-space: nowrap;
+      font-weight: 800;
+      color: var(--green);
+    }
 
     .event-title {
       font-weight: 800;
       margin-bottom: 4px;
     }
-    
-    .event-content {
-    display: flex;
-    flex-direction: column;
-}
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
 
-    .gallery-item {
-      min-height: 180px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, var(--green), var(--green-light));
-      color: var(--white);
+    .event-content {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 18px;
-      font-weight: 700;
+      flex-direction: column;
     }
 
     .contact-box {
@@ -344,40 +324,36 @@ h1 {
     }
 
     @media (max-width: 850px) {
-      .hero {
-        flex-direction: row;
-        text-align: left;
-       display: flex;
-       align-items: center;
-       justify-content: space-between;
-      }
-.title-row {
-  gap: 14px;
-}
-
-.title-logo {
-  width: clamp(70px, 22vw, 120px);
-}
-
-.old-english {
-  font-size: clamp(2.8rem, 13vw, 5rem);
-}
-
-.hero {
-  justify-content: center;
-}
-     
-      .hero-logo {
-       display: none;
-        margin-top: 20px;
-      }
-      .nav-links {
+      nav {
         display: none;
+      }
+
+      header {
+        min-height: 78vh;
+      }
+
+      .hero {
+        padding: 40px 14px 70px;
+      }
+
+      .hero-heading {
+        gap: 12px;
+      }
+
+      .old-english {
+        font-size: clamp(3.2rem, 13vw, 5rem);
+      }
+
+      .title-logo {
+        width: clamp(70px, 22vw, 115px);
+      }
+
+      .hero p {
+        font-size: 1.25rem;
       }
 
       .cards,
       .two-column,
-      .gallery,
       .contact-box {
         grid-template-columns: 1fr;
       }
@@ -385,17 +361,13 @@ h1 {
       .event {
         grid-template-columns: 1fr;
       }
-
-      header {
-        min-height: 78vh;
-      }
     }
   </style>
 </head>
+
 <body>
   <header id="start">
     <nav>
-      <div class="logo"></div>
       <div class="nav-links">
         <a href="#termine">Termine</a>
         <a href="galerie.html">Galerie</a>
@@ -405,21 +377,29 @@ h1 {
 
     <div class="hero">
       <div class="hero-content">
-        <span class="badge">Jägerzug</span>
-         <div class="title-row">
-  <h1>
-    <span class="old-english">Alte Kameraden</span>
-  </h1>
 
-  <img src="alte-kameraden-logo.svg" class="title-logo" alt="Logo Alte Kameraden" />
-</div>
-        <span class="badge">seit 1992</span>
+        <div class="hero-heading">
+          <div class="title-area">
+            <span class="badge">Jägerzug</span>
+
+            <h1>
+              <span class="old-english">Alte Kameraden</span>
+            </h1>
+
+            <span class="badge">seit 1992</span>
+          </div>
+
+          <img src="alte-kameraden-logo.svg" class="title-logo" alt="Logo Alte Kameraden" />
+        </div>
+
         <p>Willkommen auf der offiziellen Website unseres Schützenzugs.</p>
+
         <div class="button-row">
           <a class="btn btn-primary" href="#termine">Aktuelle Termine</a>
           <a class="btn btn-secondary" href="#kontakt">Kontakt aufnehmen</a>
         </div>
-            </div>
+
+      </div>
     </div>
   </header>
 
@@ -428,25 +408,32 @@ h1 {
       <div class="container two-column">
         <div>
           <h2 class="section-title">Über unseren Zug</h2>
-          <p class="section-intro">Wir sind der Jägerzug Alte Kameraden. Seit 1992 stehen bei uns Zusammenhalt, Tradition und ein gutes Miteinander im Mittelpunkt.</p>
+          <p class="section-intro">
+            Wir sind der Jägerzug Alte Kameraden. Seit 1992 stehen bei uns Zusammenhalt,
+            Tradition und ein gutes Miteinander im Mittelpunkt.
+          </p>
+
           <div class="cards">
             <div class="card">
               <h3>Tradition</h3>
               <p>Wir pflegen das Schützenbrauchtum und sind mit Freude bei Festen und Veranstaltungen dabei.</p>
             </div>
+
             <div class="card">
               <h3>Kameradschaft</h3>
               <p>Ob Schützenfest, Zugabend oder Ausflug: Das gemeinsame Erlebnis zählt.</p>
             </div>
+
             <div class="card">
               <h3>Seit 1992</h3>
               <p>Unser Name steht für unsere Geschichte und die Verbindung untereinander.</p>
             </div>
           </div>
         </div>
+
         <div class="image-box">
           <div>
-            <strong>Glaube, Sitte, Heimat</strong><br />  
+            <strong>Glaube, Sitte, Heimat</strong>
           </div>
         </div>
       </div>
@@ -460,71 +447,69 @@ h1 {
         <div class="timeline">
           <div class="event">
             <div class="event-date">Mai 2026</div>
-             <div class="event-content">
+            <div class="event-content">
               <div class="event-title">02.05.2026</div>
               <p>Zugschießen</p>
               <p style="color: gray;">Alter Sportplatz Hoisten</p>
             </div>
           </div>
-           <div class="event">
-             <div class="event-date"></div>
-             <div>
-             <div class="event-title">16.05.2026</div>
+
+          <div class="event">
+            <div class="event-date"></div>
+            <div class="event-content">
+              <div class="event-title">16.05.2026</div>
               <p>Jägerfest</p>
               <p style="color: gray;">Alter Sportplatz Hoisten</p>
             </div>
           </div>
+
           <div class="event">
             <div class="event-date">Juni 2026</div>
-             <div class="event-content">
+            <div class="event-content">
               <div class="event-title">19.06.2026 - 24.06.2026</div>
               <p>Schützenfest</p>
               <p style="color: gray;">Weitere Informationen werden rechtzeitig bekanntgegeben.</p>
             </div>
           </div>
+
           <div class="event">
             <div class="event-date">Juli 2026</div>
-             <div class="event-content">
+            <div class="event-content">
               <div class="event-title">18.07.2026</div>
               <p>Bezirkskönigsschießen</p>
               <p style="color: gray;">Alter Sportplatz Hoisten</p>
             </div>
           </div>
+
           <div class="event">
             <div class="event-date">August 2026</div>
-             <div class="event-content">
-              <div class="event-title"></div>
-              <p style="color: gray;"></p>            
-            </div>
+            <div class="event-content"></div>
           </div>
+
           <div class="event">
             <div class="event-date">September 2026</div>
-             <div class="event-content">
-              <div class="event-title"></div>
-              <p style="color: gray;"></p>           
-            </div>
+            <div class="event-content"></div>
           </div>
+
           <div class="event">
             <div class="event-date">Oktober 2026</div>
-             <div class="event-content">
+            <div class="event-content">
               <div class="event-title">10.10.2026 / 11.10.2026</div>
               <p>Spätkirmes in Hoisten</p>
               <p style="color: gray;">Weitere Informationen werden rechtzeitig bekanntgegeben.</p>
             </div>
           </div>
+
           <div class="event">
             <div class="event-date">November 2026</div>
-             <div class="event-content">
-              <div class="event-title"></div>
-              <p style="color: gray;"></p>
-            
-            </div>
+            <div class="event-content"></div>
           </div>
+
           <div class="event">
             <div class="event-date">Dezember 2026</div>
-             <div class="event-content">
+            <div class="event-content">
               <div class="event-title">05.12.2026</div>
-              <p style="color: gray;">Alljährliches Kickerturnier</p>            
+              <p style="color: gray;">Alljährliches Kickerturnier</p>
             </div>
           </div>
         </div>
@@ -539,6 +524,7 @@ h1 {
             <p>Ihr möchtet uns erreichen? Schreibt uns gerne eine Nachricht.</p>
             <p><strong>E-Mail:</strong> kontakt@jgz-ak92.de</p>
           </div>
+
           <a class="btn btn-primary" href="mailto:kontakt@jgz-ak92.de">E-Mail schreiben</a>
         </div>
       </div>
@@ -549,11 +535,10 @@ h1 {
     <div class="footer-inner">
       <div>© 2026 Jägerzug Alte Kameraden AK92</div>
       <div class="footer-links">
-        <a href="impressum.html"> Impressum </a>
-        <a href="datenschutz.html"> Datenschutz </a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
       </div>
     </div>
   </footer>
 </body>
 </html>
-<!-- test -->
