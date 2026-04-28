@@ -15,7 +15,8 @@
       --muted: #666;
       --white: #ffffff;
     }
-                  * {
+
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -52,7 +53,7 @@
       margin: 0 auto;
       padding: 24px 20px;
     }
-              
+
     .logo {
       font-weight: 800;
       letter-spacing: 1px;
@@ -69,7 +70,8 @@
     .nav-links a:hover {
       color: var(--gold);
     }
-.hero {
+
+    .hero {
       flex: 1;
       display: flex;
       align-items: center;
@@ -82,7 +84,8 @@
     .hero-content {
       max-width: 720px;
     }
-.badge {
+
+    .badge {
       display: inline-block;
       background: rgba(214, 168, 79, 0.18);
       color: var(--gold);
@@ -92,7 +95,8 @@
       font-weight: 700;
       margin-bottom: 20px;
     }
-              h1 {
+
+    h1 {
       font-size: clamp(2.4rem, 7vw, 5.4rem);
       line-height: 1;
       margin-bottom: 22px;
@@ -110,7 +114,8 @@
       flex-wrap: wrap;
       gap: 14px;
     }
-              .btn {
+
+    .btn {
       display: inline-block;
       padding: 13px 20px;
       border-radius: 999px;
@@ -131,7 +136,8 @@
     .btn:hover {
       transform: translateY(-2px);
     }
-              section {
+
+    section {
       padding: 76px 20px;
     }
 
@@ -153,7 +159,8 @@
       margin-bottom: 34px;
       font-size: 1.08rem;
     }
-              .cards {
+
+    .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
@@ -177,13 +184,15 @@
     .card li {
       color: var(--muted);
     }
-              .two-column {
+
+    .two-column {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
       gap: 36px;
       align-items: center;
     }
-               .image-box {
+
+    .image-box {
       background: var(--green);
       color: var(--white);
       min-height: 340px;
@@ -203,7 +212,8 @@
       display: grid;
       gap: 16px;
     }
-              .event {
+
+    .event {
       display: grid;
       grid-template-columns: 110px 1fr;
       gap: 18px;
@@ -223,7 +233,8 @@
       font-weight: 800;
       margin-bottom: 4px;
     }
-               .gallery {
+
+    .gallery {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
@@ -241,7 +252,8 @@
       padding: 18px;
       font-weight: 700;
     }
-               .contact-box {
+
+    .contact-box {
       background: var(--green);
       color: var(--white);
       border-radius: 28px;
@@ -266,7 +278,8 @@
       color: var(--white);
       padding: 34px 20px;
     }
-                .footer-inner {
+
+    .footer-inner {
       max-width: 1100px;
       margin: 0 auto;
       display: flex;
@@ -286,7 +299,8 @@
     .footer-links a:hover {
       color: var(--gold);
     }
-  @media (max-width: 850px) {
+
+    @media (max-width: 850px) {
       .nav-links {
         display: none;
       }
@@ -307,11 +321,11 @@
       }
     }
   </style>
-  </head>
+</head>
 <body>
   <header id="start">
     <nav>
-      <div class=“logo">JGZ AK92</div>
+      <div class="logo">JGZ AK92</div>
       <div class="nav-links">
         <a href="#ueber-uns">Über uns</a>
         <a href="#termine">Termine</a>
@@ -319,7 +333,12 @@
         <a href="#kontakt">Kontakt</a>
       </div>
     </nav>
-   <div class="hero">
+
+    <div style="display:flex; justify-content:center; padding:10px 20px 0;">
+      <img src="alte-kameraden-logo.svg" alt="Logo Alte Kameraden" style="max-width:320px; width:100%; height:auto;" />
+    </div>
+
+    <div class="hero">
       <div class="hero-content">
         <span class="badge">Jägerzug Alte Kameraden · seit 1992</span>
         <h1>Alte Kameraden AK92</h1>
@@ -331,6 +350,7 @@
       </div>
     </div>
   </header>
+
   <main>
     <section id="ueber-uns">
       <div class="container two-column">
@@ -353,7 +373,11 @@
           </div>
         </div>
         <div class="image-box">
-          <img src="alte-kameraden-logo.svg" alt="JGZ AK92 Logo" style="height:100px;">
+          <div>
+            <strong>Hier kann euer Zugfoto stehen</strong><br />
+            Datei speichern als: <br />
+            <code>bilder/zugfoto.jpg</code>
+          </div>
         </div>
       </div>
     </section>
@@ -375,7 +399,7 @@
             <div class="event-date">Juni 2026</div>
             <div>
               <div class="event-title">Vorbereitung Schützenfest</div>
-                        <p>Gemeinsamer Termin für Planung und Abstimmung.</p>
+              <p>Gemeinsamer Termin für Planung und Abstimmung.</p>
             </div>
           </div>
           <div class="event">
@@ -389,7 +413,7 @@
       </div>
     </section>
 
-                  <section id="galerie">
+    <section id="galerie">
       <div class="container">
         <h2 class="section-title">Galerie</h2>
         <p class="section-intro">Für echte Bilder ersetzt ihr diese Platzhalter später durch Fotos aus eurem Zugleben.</p>
@@ -401,7 +425,8 @@
         </div>
       </div>
     </section>
-       <section id="kontakt">
+
+    <section id="kontakt">
       <div class="container">
         <div class="contact-box">
           <div>
