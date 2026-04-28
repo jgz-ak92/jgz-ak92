@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+⁸<!DOCTYPE html>
 <html lang="de">
 <head>
  
@@ -54,6 +54,7 @@
       margin: 0 auto;
       padding: 24px 20px;
     }
+   
  @font-face {
   font-family: 'OldLondon';
   src: url('OldLondon.ttf')format('truetype');
@@ -71,19 +72,35 @@
       font-size: 0.95rem;
     }
 
+   
     .nav-links a:hover {
       color: var(--gold);
     }
 
     .old-english {
-   margin-top: 0;
-   margin-bottom: 0;
   font-family: 'OldLondon', cursive;
   color: black;
-  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-size: clamp(3rem, 8vw, 6.5rem);
   font-weight: bold;
   letter-spacing: 1px;
-  position: relative;
+  line-height: 1;
+}
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+}
+
+.title-row h1 {
+  margin: 0;
+  line-height: 1;
+}
+
+.title-logo {
+  width: clamp(90px, 18vw, 190px);
+  height: auto;
+  flex-shrink: 0;
 }
    
     .hero {
@@ -332,8 +349,24 @@ h1 {
        align-items: center;
        justify-content: space-between;
       }
+.title-row {
+  gap: 14px;
+}
 
+.title-logo {
+  width: clamp(70px, 22vw, 120px);
+}
+
+.old-english {
+  font-size: clamp(2.8rem, 13vw, 5rem);
+}
+
+.hero {
+  justify-content: center;
+}
+     
       .hero-logo {
+       display: none;
         margin-top: 20px;
       }
       .nav-links {
@@ -371,9 +404,13 @@ h1 {
     <div class="hero">
       <div class="hero-content">
         <span class="badge">Jägerzug</span>
-         <h1>
-        <span class="old-english">Alte Kameraden</span>
-        </h1>
+         <div class="title-row">
+  <h1>
+    <span class="old-english">Alte Kameraden</span>
+  </h1>
+
+  <img src="alte-kameraden-logo.svg" class="title-logo" alt="Logo Alte Kameraden" />
+</div>
         <span class="badge">seit 1992</span>
         <p>Willkommen auf der offiziellen Website unseres Schützenzugs.</p>
         <div class="button-row">
@@ -381,10 +418,6 @@ h1 {
           <a class="btn btn-secondary" href="#kontakt">Kontakt aufnehmen</a>
         </div>
             </div>
-
-      <div class="hero-logo">
-        <img src="alte-kameraden-logo.svg" alt="Logo Alte Kameraden" style="width:100%; max-width:420px; height:auto;" />
-      </div>
     </div>
   </header>
 
