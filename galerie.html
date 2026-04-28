@@ -1,4 +1,26 @@
-    <section id="galerie">
+
+
+
+  .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .gallery-item {
+      min-height: 180px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--green), var(--green-light));
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 18px;
+      font-weight: 700;
+    }
+
+<section id="galerie">
       <div class="container">
         <h2 class="section-title">Galerie</h2>
         <p class="section-intro">Für echte Bilder ersetzt ihr diese Platzhalter später durch Fotos aus eurem Zugleben.</p>
