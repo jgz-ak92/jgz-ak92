@@ -79,7 +79,9 @@
       text-align: center;
       width: 100%;
     }
-
+.body.galerie {
+background: var(--green);
+}
     .hero-heading {
       display: flex;
       align-items: center;
