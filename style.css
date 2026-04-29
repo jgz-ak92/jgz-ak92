@@ -32,7 +32,7 @@
     }
 
     header {
-      background: linear-gradient(rgba(15, 61, 46, 0.88), rgba(15, 61, 46, 0.88));
+      background: var(--green);
       background-size: cover;
       background-position: center;
       color: var(--white);
