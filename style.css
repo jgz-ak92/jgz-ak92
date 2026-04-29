@@ -62,9 +62,14 @@
       font-size: 0.95rem;
     }
 
-    .nav-links a:hover {
-      color: var(--gold);
-    }
+.nav-links a {
+  color: #f5d27a;
+  font-weight: 700;
+}
+
+.nav-links a:hover {
+  color: #F4A11A;
+}
 
     .hero {
       flex: 1;
@@ -92,13 +97,13 @@ color: var(--white);
 body.galerie main{
 background: var(--green);
 }
-    .hero-heading {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 24px;
-      width: 100%;
-    }
+
+.hero-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
 
 body.galerie section {
   background: var(--green);
@@ -213,11 +218,12 @@ details[open] summary::after {
 
     .old-english {
       font-family: 'OldLondon', cursive;
-      color: black;
+      color: #d6a84f;
       font-size: clamp(3rem, 8vw, 6.5rem);
       font-weight: bold;
       letter-spacing: 1px;
       line-height: 0.95;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.35);
     }
 
   .old-english-kings {
@@ -584,4 +590,10 @@ body.koenige .decade-title {
 body.koenige .event {
   background: linear-gradient(135deg, #0b2e23, #144d3a);
   border-left: 6px solid var(--gold);
+}
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
 }
