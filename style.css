@@ -336,7 +336,7 @@ details[open] summary::after {
     .image-box {
       font-family: 'OldLondon' ;
       font-size: clamp(3.2rem, 13vw, 5rem);
-      font-weight: bold
+      font-weight: bold;
       background-color: var(--green);
       color: #f5d27a;
       min-height: 340px;
@@ -347,7 +347,8 @@ details[open] summary::after {
       text-align: center;
       padding: 28px;
       box-shadow:
-  0 12px 30px rgba(0,0,0,0.2);
+  0 12px 30px rgba(0,0,0,0.2),
+      0 0 20px rgba(214,168,79,0.2);
     }
 
 .timeline {
