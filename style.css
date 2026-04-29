@@ -81,6 +81,11 @@
     }
 .body.galerie {
 background: var(--green);
+color: var(--white);
+}
+
+.body.galerie main{
+background: var(--green);
 }
     .hero-heading {
       display: flex;
