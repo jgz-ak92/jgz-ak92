@@ -347,8 +347,7 @@ details[open] summary::after {
       text-align: center;
       padding: 28px;
       box-shadow:
-  0 12px 30px rgba(0,0,0,0.2),
-  0 0 20px rgba(214,168,79,0.2);
+  0 12px 30px rgba(0,0,0,0.2);
     }
 
 .timeline {
