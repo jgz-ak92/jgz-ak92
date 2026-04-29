@@ -222,7 +222,7 @@
       font-family: 'OldLondon' ;
       font-size: 2.5rem;
       background: var(--green);
-      color: var(--white);
+      color: #f5d27a;
       min-height: 340px;
       border-radius: 28px;
       display: flex;
