@@ -242,6 +242,7 @@
     }
 
     .event {
+      position: relative;
       display: grid;
       grid-template-columns: 180px minmax(0, 1fr);
       gap: 28px;
