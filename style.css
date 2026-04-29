@@ -254,6 +254,12 @@ details[open] summary::after {
       margin: 0 auto;
     }
 
+.container-green {
+      background: var(--green)
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
     .section-title {
       color: var(--green);
       font-size: clamp(1.8rem, 4vw, 3rem);
