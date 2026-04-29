@@ -260,22 +260,46 @@ details[open] summary::after {
     }
 
     .btn {
-      display: inline-block;
-      padding: 13px 20px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: 0.2s ease;
-    }
+  display: inline-block;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+}
 
     .btn-primary {
-      background: var(--gold);
-      color: var(--dark);
-    }
+  background: linear-gradient(135deg, #d6a84f, #f4c96b);
+  color: #1e1e1e;
+  border: none;
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.3),
+    0 0 12px rgba(214,168,79,0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.35),
+    0 0 18px rgba(214,168,79,0.5);
+}
 
 .btn-secondary {
-      border: 1px solid rgba(255, 255, 255, 0.65);
-      color: var(--white);
-    }
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.5);
+
+  backdrop-filter: blur(4px);
+}
+
+.btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+
+  box-shadow: 0 0 12px rgba(214,168,79,0.3);
+}
 
     .btn:hover {
       transform: translateY(-2px);
