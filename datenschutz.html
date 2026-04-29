@@ -3,134 +3,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Datenschutz | JGZ Alte Kameraden </title>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f8f4ea;
-      color: #1e1e1e;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background: #0f3d2e;
-      color: white;
-      padding: 28px 20px;
-    }
-
-    header a {
-      color: #d6a84f;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
-
-    h1, h2 {
-      color: #0f3d2e;
-    }
-
-    .box {
-      background: white;
-      padding: 32px;
-      border-radius: 20px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.07);
-    }
-
-    footer {
-      background: #0b2e23;
-      color: white;
-      padding: 28px 20px;
-      text-align: center;
-    }
-
-    footer a {
-      color: #d6a84f;
-      text-decoration: none;
-    }
-  </style>
+  <title>Datenschutz | JGZ Alte Kameraden</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-  <a href="index.html">← Zurück zur Startseite</a>
+<header class="subpage-header">
+
+  <nav>
+    <div class="nav-inner">
+
+      <div class="nav-title">AK92</div>
+
+      <div class="burger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Startseite</a>
+        <a href="koenige.html">Könige</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="index.html#termine">Termine</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="subpage-hero">
+    <h1 class="section-title">Datenschutz</h1>
+    <p>Informationen zum Umgang mit Ihren Daten.</p>
+  </div>
+
 </header>
 
 <main>
-  <div class="box">
-    <h1>Datenschutzerklärung</h1>
+  <section>
+    <div class="container">
 
-    <h2>1. Verantwortlicher</h2>
-    <p>
-      Jägerzug Alte Kameraden<br>
-      Kreuzstr. 39<br>
-      41469 Neuss<br><br>
-      Vertreten durch: Stefan Kauffmann<br>
-      E-Mail: kontakt@jgz-ak92.de
-    </p>
+      <div class="card">
 
-    <h2>2. Hosting</h2>
-    <p>
-      Diese Website wird über GitHub Pages bereitgestellt. Anbieter ist die GitHub Inc.,
-      88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.
-    </p>
-    <p>
-      Beim Aufruf der Website werden durch den Hosting-Anbieter automatisch Informationen
-      erfasst (sogenannte Server-Logfiles). Dies sind insbesondere:
-    </p>
-    <ul>
-      <li>IP-Adresse</li>
-      <li>Datum und Uhrzeit der Anfrage</li>
-      <li>Browsertyp und -version</li>
-      <li>Betriebssystem</li>
-      <li>Referrer-URL</li>
-    </ul>
-    <p>
-      Diese Daten sind technisch erforderlich, um die Website korrekt anzuzeigen und die
-      Stabilität und Sicherheit zu gewährleisten.
-    </p>
+        <h2>1. Verantwortlicher</h2>
+        <p>
+          Jägerzug Alte Kameraden<br>
+          Kreuzstr. 39<br>
+          41469 Neuss<br><br>
+          Vertreten durch: Stefan Kauffmann<br>
+          E-Mail: kontakt@jgz-ak92.de
+        </p>
 
-    <h2>3. Rechtsgrundlage</h2>
-    <p>
-      Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
-      Interesse an einer sicheren und funktionsfähigen Bereitstellung der Website).
-    </p>
+        <h2>2. Hosting</h2>
+        <p>
+          Diese Website wird über GitHub Pages bereitgestellt. Anbieter ist die GitHub Inc.,
+          88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.
+        </p>
+        <p>
+          Beim Aufruf der Website werden automatisch Informationen erfasst:
+        </p>
+        <ul>
+          <li>IP-Adresse</li>
+          <li>Datum und Uhrzeit</li>
+          <li>Browsertyp</li>
+          <li>Betriebssystem</li>
+          <li>Referrer-URL</li>
+        </ul>
 
-    <h2>4. Kontaktaufnahme</h2>
-    <p>
-      Wenn Sie uns per E-Mail kontaktieren, werden Ihre Angaben zur Bearbeitung der Anfrage
-      gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
-    </p>
+        <h2>3. Rechtsgrundlage</h2>
+        <p>
+          Verarbeitung gemäß Art. 6 Abs. 1 lit. f DSGVO.
+        </p>
 
-    <h2>5. Ihre Rechte</h2>
-    <p>Sie haben jederzeit das Recht auf:</p>
-    <ul>
-      <li>Auskunft über Ihre gespeicherten Daten</li>
-      <li>Berichtigung unrichtiger Daten</li>
-      <li>Löschung Ihrer Daten</li>
-      <li>Einschränkung der Verarbeitung</li>
-      <li>Widerspruch gegen die Verarbeitung</li>
-      <li>Datenübertragbarkeit</li>
-    </ul>
+        <h2>4. Kontaktaufnahme</h2>
+        <p>
+          Bei E-Mail-Kontakt werden Ihre Daten zur Bearbeitung gespeichert.
+        </p>
 
-    <h2>6. Beschwerderecht</h2>
-    <p>
-      Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung
-      Ihrer personenbezogenen Daten zu beschweren.
-    </p>
+        <h2>5. Ihre Rechte</h2>
+        <ul>
+          <li>Auskunft</li>
+          <li>Berichtigung</li>
+          <li>Löschung</li>
+          <li>Einschränkung</li>
+          <li>Widerspruch</li>
+          <li>Datenübertragbarkeit</li>
+        </ul>
 
-  </div>
+        <h2>6. Beschwerderecht</h2>
+        <p>
+          Sie können sich bei einer Aufsichtsbehörde beschweren.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
 </main>
 
 <footer>
-  © 2026 Jägerzug Alte Kameraden <a href="index.html">Startseite</a>
+  <div class="footer-inner">
+    <div>© 2026 Jägerzug Alte Kameraden AK92</div>
+    <div class="footer-links">
+      <a href="index.html">Startseite</a>
+      <a href="impressum.html">Impressum</a>
+    </div>
+  </div>
 </footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
