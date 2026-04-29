@@ -511,6 +511,7 @@ details[open] summary::after {
 }
 
       .hero-heading {
+            grid-template-columns: 1fr;
         gap: 12px;
       }
 
@@ -527,7 +528,7 @@ details[open] summary::after {
       }
 
       .title-logo {
-        width: clamp(70px, 22vw, 115px);
+        display: none;
       }
 
       .hero p {
