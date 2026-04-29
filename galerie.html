@@ -1,49 +1,64 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<style>
-
-  .gallery {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .gallery-item {
-      min-height: 180px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, var(--green), var(--green-light));
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 18px;
-      font-weight: 700;
-    }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galerie | Alte Kameraden</title>
+  <meta name="description" content="Galerie des Jägerzugs Alte Kameraden." />
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<main>
-<section id="galerie">
+  <header class="subpage-header">
+    <nav>
+      <div class="nav-links">
+        <a href="index.html">Startseite</a>
+        <a href="index.html#termine">Termine</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </div>
+    </nav>
+
+    <div class="subpage-hero">
+      <h1 class="section-title">Galerie</h1>
+      <p>Fotos und Erinnerungen unseres Jägerzugs.</p>
+    </div>
+  </header>
+
+  <main>
+    <section>
       <div class="container">
-        <h2 class="section-title">Galerie</h2>
-        <p class="section-intro">Für echte Bilder ersetzt ihr diese Platzhalter später durch Fotos aus eurem Zugleben.</p>
-        <div class="gallery">
-          <div class="gallery-item">Foto 1</div>
-          <div class="gallery-item">Foto 2</div>
-          <div class="gallery-item">Foto 3</div>
-          <div class="gallery-item">Foto 4</div>
+
+        <div class="gallery-month">
+          <h2>Mai 2026</h2>
+          <div class="photo-grid">
+            <img src="bilder/galerie/2026-05/foto1.jpg" alt="Galerie Foto Mai 2026">
+            <img src="bilder/galerie/2026-05/foto2.jpg" alt="Galerie Foto Mai 2026">
+            <img src="bilder/galerie/2026-05/foto3.jpg" alt="Galerie Foto Mai 2026">
+            <img src="bilder/galerie/2026-05/foto4.jpg" alt="Galerie Foto Mai 2026">
+          </div>
         </div>
+
+        <div class="gallery-month">
+          <h2>Juni 2026</h2>
+          <div class="photo-grid">
+            <img src="bilder/galerie/2026-06/foto1.jpg" alt="Galerie Foto Juni 2026">
+            <img src="bilder/galerie/2026-06/foto2.jpg" alt="Galerie Foto Juni 2026">
+            <img src="bilder/galerie/2026-06/foto3.jpg" alt="Galerie Foto Juni 2026">
+          </div>
+        </div>
+
       </div>
     </section>
-</main>
-  <footer>
-  © 2026 Jägerzug Alte Kameraden <a href="index.html">Startseite</a>
-</footer>
+  </main>
 
+  <footer>
+    <div class="footer-inner">
+      <div>© 2026 Jägerzug Alte Kameraden AK92</div>
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
-
-  
-
