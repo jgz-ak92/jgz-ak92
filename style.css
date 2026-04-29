@@ -337,7 +337,7 @@ details[open] summary::after {
       font-family: 'OldLondon' ;
       font-size: clamp(3.2rem, 13vw, 5rem);
       font-weight: bold
-      background: var(--green);
+      background-color: var(--green);
       color: #f5d27a;
       min-height: 340px;
       border-radius: 28px;
