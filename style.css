@@ -730,3 +730,25 @@ margin-top: 16px;
     font-weight: 700;
   }
 }
+
+@media (max-width: 850px) {
+  nav {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
+
+  .burger {
+    display: flex !important;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex !important;
+  }
+}
