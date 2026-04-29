@@ -217,7 +217,7 @@ details[open] summary::after {
 
   .old-english-kings {
       font-family: 'OldLondon', cursive;
-      color: var(--gold);
+      color: #d6a84f;
       font-size: clamp(3rem, 8vw, 6.5rem);
       font-weight: bold;
       letter-spacing: 1px;
