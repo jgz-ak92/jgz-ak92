@@ -215,6 +215,15 @@ details[open] summary::after {
       line-height: 0.95;
     }
 
+  .old-english-kings {
+      font-family: 'OldLondon', cursive;
+      color: gold;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: bold;
+      letter-spacing: 1px;
+      line-height: 0.95;
+    }
+
     .title-logo {
       width: clamp(90px, 16vw, 180px);
       height: auto;
