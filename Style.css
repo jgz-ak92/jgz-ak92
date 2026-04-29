@@ -1,5 +1,4 @@
-<style>
-    :root {
+:root {
       --green: #0f3d2e;
       --green-light: #1f6f52;
       --gold: #d6a84f;
@@ -355,4 +354,4 @@
         grid-template-columns: 1fr;
       }
     }
-  </style>
+  
