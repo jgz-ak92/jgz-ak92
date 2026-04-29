@@ -117,6 +117,7 @@
 }
 
 .gallery-month h2 {
+  font-family: 'OldLondon';
   color: var(--green);
   margin-bottom: 18px;
   font-size: 2rem;
