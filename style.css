@@ -102,9 +102,10 @@ background: var(--green);
 
 .hero-heading {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
+  width: 100%;
 }
 
 body.galerie section {
@@ -257,9 +258,8 @@ details[open] summary::after {
     }
 
     .title-logo {
-      width: clamp(90px, 16vw, 180px);
+      width: clamp(90px, 12vw, 180px);
       height: auto;
-      flex-shrink: 0;
     }
 
     .hero p {
