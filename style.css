@@ -549,8 +549,14 @@ body.koenige {
   color: var(--white);
 }
 
+body.koenige header {
+  min-height: auto;
+  background: var(--green);
+}
+
 body.koenige main,
 body.koenige section {
+      padding-top:30px;
   background: var(--green);
 }
 
