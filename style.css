@@ -521,8 +521,20 @@ details[open] summary::after {
 
     @media (max-width: 850px) {
       nav {
-        display: none;
-      }
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
+
+  .nav-inner {
+    width: 100%;
+  }
+
+  .burger {
+    display: flex;
+  }
 
       header {
         min-height: 78vh;
