@@ -32,9 +32,15 @@
     }
 
     header {
-      background: var(--green);
+           border-bottom: 4px solid #F4A11A;
+  background-image: 
+    linear-gradient(var(--green), var(--green)),
+    linear-gradient(90deg, #F4A11A, #d6a84f);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
       background-size: cover;
       background-position: center;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.25)
       color: var(--white);
       min-height: 82vh;
       display: flex;
