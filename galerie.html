@@ -8,13 +8,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-  <body class="galerie">
+<body class="galerie">
+
   <header class="subpage-header">
+
     <nav>
-      <div class="nav-links">
-        <a href="index.html">Startseite</a>
-        <a href="index.html#termine">Termine</a>
-        <a href="index.html#kontakt">Kontakt</a>
+      <div class="nav-inner">
+
+        <div class="nav-title">AK92</div>
+
+        <div class="burger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Startseite</a>
+          <a href="koenige.html">Könige</a>
+          <a href="index.html#termine">Termine</a>
+          <a href="index.html#kontakt">Kontakt</a>
+        </div>
+
       </div>
     </nav>
 
@@ -22,49 +37,49 @@
       <h1 class="section-title">Galerie</h1>
       <p>Fotos und Erinnerungen unseres Jägerzugs.</p>
     </div>
+
   </header>
 
   <main>
     <section>
       <div class="container">
 
+        <!-- 2025 -->
         <div class="gallery-year">
-  <details open>
-    <summary>2025</summary>
+          <details open>
+            <summary>2025</summary>
 
-    <div class="gallery-month">
-      <h3>Juni</h3>
-      <div class="photo-grid">
-        <img src="bilder/galerie/2025-06/foto1.jpg"> 
-      </div>
-    </div>
+            <div class="gallery-month">
+              <h3>Juni</h3>
+              <div class="photo-grid">
+                <img src="bilder/galerie/2025-06/foto1.jpg" alt="Juni 2025">
+              </div>
+            </div>
 
-  </details>
-</div>
+          </details>
+        </div>
 
-
-
-        
+        <!-- 2026 -->
         <div class="gallery-year">
-  <details open>
-    <summary>2026</summary>
+          <details open>
+            <summary>2026</summary>
 
-    <div class="gallery-month">
-      <h3>Mai</h3>
-      <div class="photo-grid">
-        <!-- <img src="bilder/galerie/2026-05/foto1.jpg"> -->
-      </div>
-    </div>
+            <div class="gallery-month">
+              <h3>Mai</h3>
+              <div class="photo-grid">
+                <!-- <img src="bilder/galerie/2026-05/foto1.jpg"> -->
+              </div>
+            </div>
 
-    <div class="gallery-month">
-      <h3>Juni</h3>
-      <div class="photo-grid">
-        <!-- <img src="bilder/galerie/2026-06/foto1.jpg"> -->
-      </div>
-    </div>
+            <div class="gallery-month">
+              <h3>Juni</h3>
+              <div class="photo-grid">
+                <!-- <img src="bilder/galerie/2026-06/foto1.jpg"> -->
+              </div>
+            </div>
 
-  </details>
-</div>
+          </details>
+        </div>
 
       </div>
     </section>
@@ -79,5 +94,13 @@
       </div>
     </div>
   </footer>
+
+  <!-- BURGER SCRIPT -->
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+  </script>
+
 </body>
 </html>
