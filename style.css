@@ -543,3 +543,19 @@ details[open] summary::after {
   font-size: 2rem;
   letter-spacing: 1px;
 }
+
+body.koenige {
+  background: var(--green) !important;
+  color: var(--white);
+}
+
+body.koenige main,
+body.koenige section,
+body.koenige .container {
+  background: var(--green) !important;
+}
+
+body.koenige .section-title,
+body.koenige .section-intro {
+  color: var(--gold);
+}
