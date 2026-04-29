@@ -117,8 +117,8 @@
 }
 
 .gallery-month h2 {
-  font-family: 'OldLondon';
-  color: var(--green);
+  font-family: 'OldLondon', cursive;
+  color: var(--gold);
   margin-bottom: 18px;
   font-size: 2rem;
 }
@@ -142,7 +142,7 @@
 }
 
 .gallery-year summary {
-font-family: 'OldLondon';
+font-family: 'OldLondon', cursive;
   font-size: 2rem;
   font-weight: 800;
   color: var(--gold);
