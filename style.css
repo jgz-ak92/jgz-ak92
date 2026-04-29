@@ -242,44 +242,36 @@
     }
 
     .event {
-      position: relative;
-      display: grid;
-      grid-template-columns: 180px minmax(0, 1fr);
-      gap: 28px;
-      background: var(--white);
-      border-radius: 18px;
-      padding: 18px;
-      border-left: 6px solid var(--gold);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-    }
-
-    .event-date {
-      white-space: nowrap;
-      font-weight: 800;
-      color: var(--green);
-    }
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--white);
+  border-radius: 18px;
+  padding: 52px 18px 18px;
+  border-left: 6px solid var(--gold);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
 
 .event-month {
   position: absolute;
   top: 0;
   right: 0;
 
-  background: linear-gradient(135deg, var(--green), var(--green-light));
-  color: var(--white);
-
-  padding: 8px 16px;
-  font-weight: 700;
-
-  border-bottom-left-radius: 12px;
-  border-top-right-radius: 18px;
-
   min-width: 140px;
+  height: 36px;
 
-  display: flex;              /* 🔥 wichtig */
-  justify-content: center;    /* horizontal zentriert */
-  align-items: center;        /* vertikal zentriert */
+  background: linear-gradient(135deg, var(--green), var(--green-light));
+  color: white;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 800;
   text-align: center;
+
+  border-top-right-radius: 18px;
+  border-bottom-left-radius: 14px;
 }
 
     .event-title {
