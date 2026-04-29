@@ -545,17 +545,17 @@ details[open] summary::after {
 }
 
 body.koenige {
-  background: var(--green) !important;
+  background: var(--green);
   color: var(--white);
 }
 
 body.koenige main,
-body.koenige section,
-body.koenige .container {
-  background: var(--green) !important;
+body.koenige section {
+  background: var(--green);
 }
 
 body.koenige .section-title,
-body.koenige .section-intro {
+body.koenige .section-intro,
+body.koenige .decade-title {
   color: var(--gold);
 }
