@@ -113,6 +113,8 @@
 }
 
 .gallery-month {
+font-family: 'OldLondon', cursive;
+  color: var(--gold);
   margin-bottom: 56px;
 }
 
