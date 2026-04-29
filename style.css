@@ -394,7 +394,7 @@ details[open] summary::after {
   background: var(--green) !important;
   background-color: var(--green) !important;
   background-image: none !important;
-  color: #f5d27a !important;
+  color: #d6a84f !important;
   min-height: 340px;
   border-radius: 28px;
   display: flex;
