@@ -262,7 +262,7 @@
   height: 36px;
 
   background: linear-gradient(135deg, var(--green), var(--green-light));
-  color: white;
+  color: #f5d27a;
 
   display: flex;
   justify-content: center;
