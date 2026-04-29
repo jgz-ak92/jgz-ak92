@@ -659,3 +659,62 @@ body.koenige .event {
   width: 100%;
 margin-top: 16px;
 }
+
+/* NAV WRAPPER */
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* BURGER */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.burger span {
+  width: 26px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* MOBILE */
+@media (max-width: 850px) {
+
+  .burger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+
+    background: linear-gradient(135deg, var(--green), var(--green-light));
+    border-radius: 16px;
+    padding: 20px;
+
+    flex-direction: column;
+    gap: 16px;
+
+    display: none;
+
+    box-shadow:
+      0 12px 30px rgba(0,0,0,0.4),
+      0 0 12px rgba(214,168,79,0.25);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    color: var(--gold);
+    font-weight: 700;
+  }
+}
