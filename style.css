@@ -531,3 +531,15 @@ details[open] summary::after {
     gap: 4px;
   }
 }
+
+.decade-title {
+  font-family: 'OldLondon', cursive;
+  color: var(--gold);
+  background: var(--green);
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 999px;
+  margin: 34px 0 18px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
