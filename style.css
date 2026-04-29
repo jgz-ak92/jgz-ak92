@@ -156,7 +156,7 @@ font-family: 'OldLondon', cursive;
 }
 
 .gallery-year summary {
-background: var(--green),
+background: var(--green);
 font-family: 'OldLondon', cursive;
   font-size: 2rem;
   font-weight: 800;
@@ -334,18 +334,20 @@ details[open] summary::after {
     }
 
     .image-box {
-      font-family: 'OldLondon' ;
-      font-size: clamp(3.2rem, 13vw, 5rem);
-      font-weight: bold;
-      background-color: var(--green);
-      color: #f5d27a;
-      min-height: 340px;
-      border-radius: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 28px;
+  font-family: 'OldLondon', cursive !important;
+  font-size: clamp(3.2rem, 13vw, 5rem) !important;
+  font-weight: bold !important;
+  background: var(--green) !important;
+  background-color: var(--green) !important;
+  background-image: none !important;
+  color: #f5d27a !important;
+  min-height: 340px;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 28px;
       box-shadow:
   0 12px 30px rgba(0,0,0,0.2),
       0 0 20px rgba(214,168,79,0.2);
