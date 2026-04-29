@@ -79,12 +79,12 @@
       text-align: center;
       width: 100%;
     }
-.body.galerie {
+body.galerie {
 background: var(--green);
 color: var(--white);
 }
 
-.body.galerie main{
+body.galerie main{
 background: var(--green);
 }
     .hero-heading {
@@ -94,6 +94,10 @@ background: var(--green);
       gap: 24px;
       width: 100%;
     }
+
+body.galerie section {
+  background: var(--green);
+}
 
 .subpage-header {
   min-height: 38vh;
