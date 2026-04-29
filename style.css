@@ -141,9 +141,10 @@
 }
 
 .gallery-year summary {
+font-family: 'OldLondon';
   font-size: 2rem;
   font-weight: 800;
-  color: var(--green);
+  color: var(--gold);
   cursor: pointer;
   margin-bottom: 10px;
   list-style: none;
