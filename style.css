@@ -201,7 +201,12 @@ details[open] summary::after {
       flex-direction: column;
       align-items: center;
       text-align: center;
+          gap: 12px;
     }
+
+.title-area p {
+  margin-top: 12px;
+}
 
  .badge {
   display: inline-flex;
@@ -635,5 +640,5 @@ body.koenige .event {
   justify-content: center;
   gap: 14px;
   width: 100%;
-margin-top: 22px;
+margin-top: 16px;
 }
