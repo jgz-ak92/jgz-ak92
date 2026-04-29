@@ -151,12 +151,12 @@ font-family: 'OldLondon', cursive;
 }
 
 .gallery-year {
- background: var(--green)
+ background: var(--green);
   margin-bottom: 40px;
 }
 
 .gallery-year summary {
-background: var(--green)
+background: var(--green),
 font-family: 'OldLondon', cursive;
   font-size: 2rem;
   font-weight: 800;
@@ -263,7 +263,7 @@ details[open] summary::after {
     }
 
    section-green {
-      background: var(--green)
+      background: var(--green);
       padding: 76px 20px;
     }
 
