@@ -485,4 +485,49 @@ details[open] summary::after {
         grid-template-columns: 1fr;
       }
     }
-  
+
+.king-list,
+.king-highlight {
+  display: grid;
+  gap: 10px;
+}
+
+.king-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: center;
+  background: var(--white);
+  border-left: 6px solid var(--gold);
+  border-radius: 14px;
+  padding: 14px 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.king-row span {
+  font-weight: 800;
+  color: var(--green);
+}
+
+.king-row strong {
+  color: var(--dark);
+}
+
+.king-highlight .king-row {
+  background: linear-gradient(135deg, var(--green), var(--green-light));
+}
+
+.king-highlight .king-row span,
+.king-highlight .king-row strong {
+  color: var(--gold);
+}
+
+.king-section-title {
+  margin-top: 70px;
+}
+
+@media (max-width: 850px) {
+  .king-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
