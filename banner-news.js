@@ -15,7 +15,12 @@ const banner = document.createElement("div");
     setTimeout(() => banner.remove(), 300);
   };
 
+  const existingBanner = document.querySelector(".banner");
+if (existingBanner) {
+  existingBanner.after(banner);
+} else {
   document.body.prepend(banner);
+}
 }
 
 document.addEventListener("DOMContentLoaded", loadNewsBanner);
