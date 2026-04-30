@@ -7,6 +7,34 @@
   font-size: 0.95rem;
   border-bottom: 2px solid var(--orange);
   position: relative;
+  overflow: hidden;
 }
 
 .banner span {transition: opacity 0.3s ease;}
+
+.banner-slide-text {  display: inline-block;  white-space: nowrap;}
+
+.banner-slide-text.slide-in {  animation: slideIn 0.35s ease forwards;}
+
+.banner-slide-text.slide-out {  animation: slideOut 0.3s ease forwards;}
+
+@keyframes slideIn {  
+  from {    opacity: 0;
+        transform: translateY(120%);
+       }  
+  to {    
+    opacity: 1;    
+    transform: translateY(0);  
+  }
+}
+
+@keyframes slideOut {  
+  from {    
+    opacity: 1;
+    transform: translateY(0);
+  }  
+  to {    
+    opacity: 0;    
+    transform: translateY(-120%);
+  }
+}
