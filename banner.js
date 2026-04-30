@@ -1,5 +1,5 @@
 function loadBanner() {
-  const text = "🍻 Schützenfest 19.06. – 24.06. – Wir freuen uns auf euch! 🍻";
+  const text = " 🍻 Schützenfest 19.06. – 24.06. – Wir freuen uns auf euch! 🍻 ";
 
   const banner = document.createElement("div");
   banner.className = "banner";
