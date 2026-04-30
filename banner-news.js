@@ -1,16 +1,20 @@
 function loadBanner() {
   const text = "BREAKING NEWS!!! Wir haben einen neuen Zugkönig..."<br>"Herzlichen Glückwunsch ";
  
-
-  const banner = document.createElement("div");
-  banner.className = "banner";
+const banner = document.createElement("div");
+  banner.className = "news-banner";
 
   banner.innerHTML = `
-    ${text}
-    <span class="banner-close" onclick="this.parentElement.remove()">✕</span>
+    <span>${text}</span>
+    <button class="news-banner-close" aria-label="Banner schließen">×</button>
   `;
+
+  banner.querySelector(".news-banner-close").onclick = () => {
+    banner.classList.add("hide");
+    setTimeout(() => banner.remove(), 300);
+  };
 
   document.body.prepend(banner);
 }
 
-document.addEventListener("DOMContentLoaded", loadBanner);
+document.addEventListener("DOMContentLoaded", loadNewsBanner);
