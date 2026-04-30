@@ -9,7 +9,7 @@
   position: relative;
   overflow: hidden;
 
-  min-height: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,7 +47,7 @@
 @media (max-width: 850px) {
   .banner {
     padding: 10px 16px;
-    min-height: 100px;
+    height: 100px;
     font-size: 0.82rem;
     line-height: 1.3;
   }
