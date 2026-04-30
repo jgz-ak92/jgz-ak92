@@ -9,23 +9,24 @@ function loadRotatingBanner() {
   banner.className = "banner";
 
   const textSpan = document.createElement("span");
+  textSpan.className = "banner-slide-text";
   banner.appendChild(textSpan);
 
-  function showMessage(i) {
-    textSpan.style.opacity = 0;
+  function showMessage() {
+    textSpan.classList.remove("slide-in");
+    textSpan.classList.add("slide-out");
 
     setTimeout(() => {
-      textSpan.textContent = messages[i];
-      textSpan.style.opacity = 1;
+      textSpan.textContent = messages[index];
+      textSpan.classList.remove("slide-out");
+      textSpan.classList.add("slide-in");
+
+      index = (index + 1) % messages.length;
     }, 300);
   }
 
-  showMessage(index);
-
-  setInterval(() => {
-    index = (index + 1) % messages.length;
-    showMessage(index);
-  }, 4000);
+  showMessage();
+  setInterval(showMessage, 5000);
 
   document.body.prepend(banner);
 }
