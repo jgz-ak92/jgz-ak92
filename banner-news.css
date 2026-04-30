@@ -16,22 +16,6 @@
   animation: newsGlow 2.5s ease-in-out infinite;
 }
 
-.news-banner-close {
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  color: var(--gold);
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-
-.news-banner.hide {
-  animation: newsSlideUp 0.3s ease both;
-}
-
 @keyframes newsSlideDown {
   from {
     opacity: 0;
@@ -40,13 +24,6 @@
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes newsSlideUp {
-  to {
-    opacity: 0;
-    transform: translateY(-100%);
   }
 }
 
