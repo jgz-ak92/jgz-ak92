@@ -129,7 +129,7 @@ nav {
 }
 
 .title-area {
-  display: contents;
+  display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -138,6 +138,12 @@ nav {
 
 .title-main {
   text-align: center;
+}
+
+.title-logo {
+  width: clamp(90px, 12vw, 180px);
+  height: auto;
+  align-self: center;
 }
 
 h1 {
@@ -158,12 +164,6 @@ h1 {
 
 .old-english {
   text-shadow: 0 3px 10px rgba(0,0,0,0.35);
-}
-
-.title-logo {
-  width: clamp(90px, 12vw, 180px);
-  height: auto;
-  align-self: center;
 }
 
 .badge {
