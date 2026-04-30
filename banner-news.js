@@ -6,14 +6,7 @@ const banner = document.createElement("div");
   banner.className = "news-banner";
 
   banner.innerHTML = `
-    <span>${text}</span>
-    <button class="news-banner-close" aria-label="Banner schließen">×</button>
-  `;
-
-  banner.querySelector(".news-banner-close").onclick = () => {
-    banner.classList.add("hide");
-    setTimeout(() => banner.remove(), 300);
-  };
+    <span>${text}</span>;
 
   const existingBanner = document.querySelector(".banner");
 if (existingBanner) {
