@@ -9,7 +9,7 @@
   position: relative;
   overflow: hidden;
 
-  min-height: 64px;
+  min-height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
