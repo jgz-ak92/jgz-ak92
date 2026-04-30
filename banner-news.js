@@ -1,5 +1,6 @@
 function loadBanner() {
-  const text = "BREAKING NEWS!!! Wir haben einen neuen Zugkönig..."<br>"Herzlichen Glückwunsch ";
+  const text = "✨ Neuigkeiten: Unsere Galerie wurde aktualisiert – schaut gerne rein!";
+  <!-- const text = "BREAKING NEWS!!! Wir haben einen neuen Zugkönig..."<br>"Herzlichen Glückwunsch "; -->
  
 const banner = document.createElement("div");
   banner.className = "news-banner";
