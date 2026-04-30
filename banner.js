@@ -5,9 +5,7 @@ function loadBanner() {
   banner.className = "banner";
 
   banner.innerHTML = `
-    ${text}
-    <span class="banner-close" onclick="this.parentElement.remove()">✕</span>
-  `;
+    ${text};
 
   document.body.prepend(banner);
 }
