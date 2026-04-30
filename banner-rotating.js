@@ -1,7 +1,7 @@
 function loadRotatingBanner() {
   // const messages = ["🍻 Schützenfest 19.06. – 24.06. – Wir freuen uns auf euch! 🍻","✨ Neuigkeiten: Unsere Galerie wurde aktualisiert – schaut gerne rein! ✨"];
 
-  const messages = ["🍻 Schützenfest 19.06. – 24.06. – Wir freuen uns auf euch! 🍻", "BREAKING NEWS!!! Wir haben einen neuen Zugkönig..."<br>"👑 Herzlichen Glückwunsch 👑"];
+  const messages = ["🍻 Schützenfest 19.06. – 24.06. – Wir freuen uns auf euch! 🍻", "BREAKING NEWS!!! Wir haben einen neuen Zugkönig...<br>👑 Herzlichen Glückwunsch 👑"];
 
   let index = 0;
 
@@ -17,7 +17,7 @@ function loadRotatingBanner() {
     textSpan.classList.add("slide-out");
 
     setTimeout(() => {
-      textSpan.textContent = messages[index];
+      textSpan.innerHTML = messages[index];
       textSpan.classList.remove("slide-out");
       textSpan.classList.add("slide-in");
 
