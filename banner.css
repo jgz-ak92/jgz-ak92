@@ -8,6 +8,11 @@
   border-bottom: 2px solid var(--orange);
   position: relative;
   overflow: hidden;
+
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .banner span {transition: opacity 0.3s ease;}
