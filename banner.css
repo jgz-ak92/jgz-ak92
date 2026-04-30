@@ -17,7 +17,7 @@
 
 .banner span {transition: opacity 0.3s ease;}
 
-.banner-slide-text {  display: inline-block;  white-space: nowrap;}
+.banner-slide-text {  display: inline-block;}
 
 .banner-slide-text.slide-in {  animation: slideIn 0.35s ease forwards;}
 
@@ -43,3 +43,18 @@
     transform: translateY(-120%);
   }
 }
+
+@media (max-width: 850px) {
+  .banner {
+    padding: 10px 18px;
+    min-height: 78px;
+    font-size: 0.85rem;
+  }
+
+  .banner-slide-text {
+    white-space: normal;
+    line-height: 1.3;
+  }
+}
+
+
