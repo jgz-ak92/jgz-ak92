@@ -1,0 +1,25 @@
+name: Generate Gallery
+
+on:
+  push:
+    paths:
+      - bilder/galerie/**
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Run generate gallery script
+        run: |
+          node generate-gallery.js
+
+      - name: Commit gallery data
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git add gallery-data.json
+          git commit -m 'Update gallery data [skip ci]' || echo 'No changes to commit'
