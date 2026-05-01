@@ -1,108 +1,26 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Galerie | Alte Kameraden</title>
-  <meta name="description" content="Galerie des Jägerzugs Alte Kameraden." />
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="banner.css">
-  <link rel="stylesheet" href="banner-news.css">
-</head>
-
-<body class="galerie">
-
-  <header class="subpage-header">
-
-    <nav>
-      <div class="nav-inner">
-
-        <div class="nav-title"></div>
-
-        <div class="burger" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <div class="nav-links" id="navLinks">
-          <a href="index.html">Startseite</a>
-          <!-- <a href="koenige.html">Könige</a> -->
-          <a href="index.html#termine">Termine</a>
-          <a href="index.html#kontakt">Kontakt</a>
-        </div>
-
-      </div>
-    </nav>
-
-    <div class="subpage-hero">
-      <h1 class="section-title">Galerie</h1>
-      <p>Fotos und Erinnerungen unseres Jägerzugs.</p>
-    </div>
-
-  </header>
-
-  <main>
-    <section>
-      <div class="container">
-
-        <!-- 2025 -->
-        <div class="gallery-year">
-          <details open>
-            <summary>2025</summary>
-
-            <div class="gallery-month">
-              <h3>Juni</h3>
-              <div class="photo-grid">
-                <img src="bilder/galerie/2025-06/foto1.jpg" alt="Juni 2025">
-              </div>
-            </div>
-
-          </details>
-        </div>
-
-        <!-- 2026 -->
-        <div class="gallery-year">
-          <details open>
-            <summary>2026</summary>
-
-            <div class="gallery-month">
-              <h3>Mai</h3>
-              <div class="photo-grid">
-                <!-- <img src="bilder/galerie/2026-05/foto1.jpg"> -->
-              </div>
-            </div>
-
-            <div class="gallery-month">
-              <h3>Juni</h3>
-              <div class="photo-grid">
-                <!-- <img src="bilder/galerie/2026-06/foto1.jpg"> -->
-              </div>
-            </div>
-
-          </details>
-        </div>
-
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div>© 2026 Jägerzug Alte Kameraden AK92</div>
-      <div class="footer-links">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- BURGER SCRIPT -->
-  <script>
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("active");
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <script>
+    async function loadGallery() {
+        let response = await fetch('gallery-data.json');
+        let data = await response.json();
+        const gallery = document.getElementById('gallery');
+        data.images.forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = image.url;
+            imgElement.alt = image.description;
+            gallery.appendChild(imgElement);
+        });
     }
-  </script>
-<script src="banner-rotating.js"></script>
+    window.onload = loadGallery;
+    </script>
+</head>
+<body>
+    <h1>Gallery</h1>
+    <div id="gallery"></div>
 </body>
 </html>
