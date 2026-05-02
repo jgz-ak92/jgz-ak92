@@ -227,6 +227,14 @@ body.galerie section {
   box-shadow: 0 12px 34px rgba(0,0,0,0.35);
 }
 
+.subpage-header {
+  min-height: auto;
+}
+
+.subpage-hero {
+  padding: 20px 20px 20px;
+}
+
 /* LIGHTBOX */
 .lightbox {
   position: fixed;
@@ -273,6 +281,7 @@ footer {
   gap: 20px;
   flex-wrap: wrap;
 }
+
 
 /* MOBILE */
 @media (max-width: 850px) {
