@@ -675,3 +675,63 @@ footer {
     height: 150px;
   }
       }
+
+/* FIX STARTSEITE GRÜN */
+body,
+main,
+section {
+  background: var(--green);
+  color: var(--white);
+}
+
+.section-title,
+.section-intro {
+  color: var(--gold);
+}
+
+.card {
+  background: #ffffff;
+  color: var(--dark);
+}
+
+.card p,
+.card li {
+  color: var(--muted);
+}
+
+/* BUTTON FIX - gegen Überschreibungen aus banner.css */
+a.btn,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+a.btn-primary,
+.btn-primary {
+  background: linear-gradient(135deg, #d6a84f, #f4c96b);
+  color: #1e1e1e;
+  border: none;
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.3),
+    0 0 12px rgba(214,168,79,0.35);
+}
+
+a.btn-secondary,
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 999px;
+}
+
+a.btn:hover,
+.btn:hover {
+  transform: translateY(-2px);
+}
