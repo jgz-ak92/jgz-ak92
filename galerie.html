@@ -48,87 +48,84 @@
   </footer>
 
   <script>
-    function formatMonth(folderName) {
-      const [year, month] = folderName.split("-");
-      const date = new Date(year, month - 1);
+  function formatMonth(folderName) {
+    const [year, month] = folderName.split("-");
+    const date = new Date(year, month - 1);
 
-      return date.toLocaleString("de-DE", {
-        month: "long",
-        year: "numeric"
+    return date.toLocaleString("de-DE", {
+      month: "long",
+      year: "numeric"
+    });
+  }
+
+  fetch("bilder/galerie/gallery.json")
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById("gallery-container");
+
+      // 🔥 Daten nach Jahr gruppieren
+      const years = {};
+
+      Object.keys(data).forEach(folder => {
+        const year = folder.split("-")[0];
+        if (!years[year]) years[year] = [];
+        years[year].push(folder);
       });
-    }
 
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxClose = document.querySelector(".lightbox-close");
+      // 🔥 Jahre sortieren (neueste zuerst)
+      Object.keys(years)
+        .sort((a, b) => b - a)
+        .forEach(year => {
 
-    function openLightbox(src, alt) {
-      lightboxImg.src = src;
-      lightboxImg.alt = alt;
-      lightbox.classList.add("active");
-    }
+          const details = document.createElement("details");
+          details.className = "gallery-year";
+          details.open = true; // standardmäßig geöffnet
 
-    function closeLightbox() {
-      lightbox.classList.remove("active");
-      lightboxImg.src = "";
-    }
+          const summary = document.createElement("summary");
+          summary.textContent = year;
+          details.appendChild(summary);
 
-    lightboxClose.addEventListener("click", closeLightbox);
+          // Monate im Jahr sortieren
+          years[year]
+            .sort((a, b) => new Date(b) - new Date(a))
+            .forEach(folder => {
 
-    lightbox.addEventListener("click", function(event) {
-      if (event.target === lightbox) {
-        closeLightbox();
-      }
-    });
+              const monthDiv = document.createElement("div");
+              monthDiv.className = "gallery-month";
 
-    document.addEventListener("keydown", function(event) {
-      if (event.key === "Escape") {
-        closeLightbox();
-      }
-    });
+              const title = document.createElement("h2");
+              title.textContent = formatMonth(folder);
+              monthDiv.appendChild(title);
 
-    fetch("bilder/galerie/gallery.json")
-      .then(response => response.json())
-      .then(data => {
-        const container = document.getElementById("gallery-container");
+              const grid = document.createElement("div");
+              grid.className = "photo-grid";
 
-        Object.keys(data)
-          .sort((a, b) => new Date(b) - new Date(a))
-          .forEach(folder => {
-            const monthDiv = document.createElement("div");
-            monthDiv.className = "gallery-month";
+              data[folder]
+                .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+                .reverse()
+                .forEach(file => {
+                  const img = document.createElement("img");
+                  img.src = `bilder/galerie/${folder}/${file}`;
+                  img.alt = `Galerie Foto ${title.textContent}`;
+                  img.loading = "lazy";
 
-            const title = document.createElement("h2");
-            title.textContent = formatMonth(folder);
-            monthDiv.appendChild(title);
+                  img.addEventListener("click", function() {
+                    openLightbox(img.src, img.alt);
+                  });
 
-            const grid = document.createElement("div");
-            grid.className = "photo-grid";
-
-            data[folder]
-              .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
-              .reverse()
-              .forEach(file => {
-                const img = document.createElement("img");
-                img.src = `bilder/galerie/${folder}/${file}`;
-                img.alt = `Galerie Foto ${title.textContent}`;
-                img.loading = "lazy";
-
-                img.addEventListener("click", function() {
-                  openLightbox(img.src, img.alt);
+                  grid.appendChild(img);
                 });
 
-                grid.appendChild(img);
-              });
+              monthDiv.appendChild(grid);
+              details.appendChild(monthDiv);
+            });
 
-            monthDiv.appendChild(grid);
-            container.appendChild(monthDiv);
-          });
-      })
-      .catch(error => {
-        console.error("Fehler beim Laden der Galerie:", error);
-      });
-  </script>
-
+          container.appendChild(details);
+        });
+    })
+    .catch(error => {
+      console.error("Fehler beim Laden der Galerie:", error);
+    });
+</script>
 </body>
 </html>
