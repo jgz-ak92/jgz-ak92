@@ -480,12 +480,10 @@ details[open] summary::after {
 .lightbox {
   position: fixed;
   inset: 0;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  padding: 28px;
-  background: rgba(0,0,0,0.88);
-  z-index: 9999;
+  width: 100vw;
+  height: 100dvh;
+  z-index: 99999;
+  touch-action: manipulation;
 }
 
 .lightbox.active {
@@ -493,18 +491,14 @@ details[open] summary::after {
 }
 
 .lightbox img {
-  max-width: 95%;
-  max-height: 88vh;
-  border-radius: 14px;
+  max-width: 95vw;
+  max-height: 85dvh;
+  object-fit: contain;
 }
 
 .lightbox-close {
-  position: absolute;
-  top: 22px;
-  right: 34px;
-  color: var(--white);
-  font-size: 3rem;
-  cursor: pointer;
+  position: fixed;
+  z-index: 100000;
 }
 
 /* KÖNIGE */
@@ -675,6 +669,8 @@ footer {
 
   .photo-grid img {
     height: 150px;
+    object-fit: cover;
+    cursor: pointer;
   }
       }
 
