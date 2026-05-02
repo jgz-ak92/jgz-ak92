@@ -1,25 +1,61 @@
-name: Generate Gallery
+name: Update gallery index
 
 on:
   push:
     paths:
-      - bilder/galerie/**
+      - "bilder/galerie/**"
+      - ".github/workflows/update-gallery.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
-  generate:
+  update-gallery:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
+      - name: Repository laden
+        uses: actions/checkout@v4
 
-      - name: Run generate gallery script
+      - name: gallery.json erzeugen
         run: |
-          node generate-gallery.js
+          python3 <<'PY'
+          import os, json
 
-      - name: Commit gallery data
+          base = "bilder/galerie"
+          allowed = (".jpg", ".jpeg", ".png", ".webp", ".gif")
+          gallery = {}
+
+          if os.path.exists(base):
+              for folder in sorted(os.listdir(base), reverse=True):
+                  folder_path = os.path.join(base, folder)
+
+                  if not os.path.isdir(folder_path):
+                      continue
+
+                  images = [
+                      file for file in sorted(os.listdir(folder_path))
+                      if file.lower().endswith(allowed)
+                  ]
+
+                  if images:
+                      gallery[folder] = images
+
+          with open(os.path.join(base, "gallery.json"), "w", encoding="utf-8") as f:
+              json.dump(gallery, f, ensure_ascii=False, indent=2)
+          PY
+
+      - name: Änderungen speichern
         run: |
-          git config --local user.email 'action@github.com'
-          git config --local user.name 'GitHub Action'
-          git add gallery-data.json
-          git commit -m 'Update gallery data [skip ci]' || echo 'No changes to commit'
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add bilder/galerie/gallery.json
+
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen."
+          else
+            git commit -m "Update gallery index"
+            git push
+          fi
