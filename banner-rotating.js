@@ -1,6 +1,8 @@
 function loadRotatingBanner() {
-
- const messages = ["🍻 Schützenfest 19.06. – 24.06. – Wir freuen uns auf euch! 🍻", "BREAKING NEWS!!! Wir haben einen neuen Zugkönig...👑 Herzlichen Glückwunsch, Sascha II. Vidahl 👑"];
+  const messages = [
+    "🍻 Schützenfest 19.06. – 24.06. – Wir freuen uns auf euch! 🍻",
+    "BREAKING NEWS!!! Wir haben einen neuen Zugkönig...👑 Herzlichen Glückwunsch, Sascha II. Vidahl 👑"
+  ];
 
   let index = 0;
 
@@ -9,15 +11,21 @@ function loadRotatingBanner() {
 
   const textSpan = document.createElement("span");
   textSpan.className = "banner-slide-text";
+
   banner.appendChild(textSpan);
+  document.body.prepend(banner);
 
   function showMessage() {
     textSpan.classList.remove("slide-in");
     textSpan.classList.add("slide-out");
 
     setTimeout(() => {
-      textSpan.innerHTML = messages[index];
+      textSpan.textContent = messages[index];
       textSpan.classList.remove("slide-out");
+
+      // Animation sicher neu starten
+      void textSpan.offsetWidth;
+
       textSpan.classList.add("slide-in");
 
       index = (index + 1) % messages.length;
@@ -26,8 +34,6 @@ function loadRotatingBanner() {
 
   showMessage();
   setInterval(showMessage, 5000);
-
-  document.body.prepend(banner);
 }
 
 document.addEventListener("DOMContentLoaded", loadRotatingBanner);
