@@ -10,20 +10,23 @@
 </head>
 <body>
 
-fetch('bilder/galerie/gallery.json')
-  .then(response => response.json())
+fetch("bilder/galerie/gallery.json")
+  .then(res => res.json())
   .then(data => {
-    const gallery = document.getElementById('gallery');
+    const galerie = document.getElementById("galerie");
 
-    Object.keys(data).sort().reverse().forEach(folder => {
-      const title = document.createElement('h2');
-      title.textContent = folder;
-      gallery.appendChild(title);
+    Object.entries(data).forEach(([monat, bilder]) => {
+      const h2 = document.createElement("h2");
+      h2.textContent = monat;
+      galerie.appendChild(h2);
 
-      data[folder].forEach(img => {
-        const image = document.createElement('img');
-        image.src = `bilder/galerie/${folder}/${img}`;
-        gallery.appendChild(image);
+      bilder.forEach(datei => {
+        const img = document.createElement("img");
+        img.src = `bilder/galerie/${monat}/${datei}`;
+        img.alt = datei;
+        img.style.maxWidth = "250px";
+        img.style.margin = "10px";
+        galerie.appendChild(img);
       });
     });
   });
