@@ -1,26 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
-    <script>
-    async function loadGallery() {
-        let response = await fetch('gallery-data.json');
-        let data = await response.json();
-        const gallery = document.getElementById('gallery');
-        data.images.forEach(image => {
-            const imgElement = document.createElement('img');
-            imgElement.src = image.url;
-            imgElement.alt = image.description;
-            gallery.appendChild(imgElement);
-        });
-    }
-    window.onload = loadGallery;
-    </script>
-</head>
-<body>
-    <h1>Gallery</h1>
-    <div id="gallery"></div>
+
+
+fetch('bilder/galerie/gallery.json')
+  .then(response => response.json())
+  .then(data => {
+    const gallery = document.getElementById('gallery');
+
+    Object.keys(data).sort().reverse().forEach(folder => {
+      const title = document.createElement('h2');
+      title.textContent = folder;
+      gallery.appendChild(title);
+
+      data[folder].forEach(img => {
+        const image = document.createElement('img');
+        image.src = `bilder/galerie/${folder}/${img}`;
+        gallery.appendChild(image);
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
