@@ -19,7 +19,7 @@
 
     <!-- BURGER BUTTON -->
     <div class="burger" onclick="toggleMenu()">
-      <span></span>
+      <span></span>f
       <span></span>
       <span></span>
     </div>
@@ -70,6 +70,10 @@
 const lightboxImg = document.getElementById("lightbox-img");
 const lightboxClose = document.querySelector(".lightbox-close");
 
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("active");
+}
+    
 function openLightbox(src, alt) {
   lightboxImg.src = src;
   lightboxImg.alt = alt || "Großansicht";
