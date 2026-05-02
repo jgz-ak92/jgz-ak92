@@ -59,4 +59,36 @@
   }
 }
 
+.event {
+  position: relative !important;
+  background: #ffffff !important;
+  color: var(--dark) !important;
+  padding: 52px 18px 18px !important;
+  border-left: 6px solid var(--gold) !important;
+}
+
+.event-month {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  min-width: 140px !important;
+  height: 36px !important;
+  background: linear-gradient(135deg, var(--green), var(--green-light)) !important;
+  color: #f5d27a !important;
+  font-weight: 800 !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 10 !important;
+}
+
+.event-title {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: var(--green) !important;
+  font-weight: 800 !important;
+}
 
