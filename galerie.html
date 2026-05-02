@@ -48,6 +48,29 @@
   </footer>
 
   <script>
+    const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const lightboxClose = document.querySelector(".lightbox-close");
+
+function openLightbox(src, alt) {
+  lightboxImg.src = src;
+  lightboxImg.alt = alt || "Großansicht";
+  lightbox.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("active");
+  lightboxImg.src = "";
+  document.body.style.overflow = "";
+}
+
+lightboxClose.addEventListener("click", closeLightbox);
+lightboxClose.addEventListener("touchend", closeLightbox);
+
+lightbox.addEventListener("click", function(e) {
+  if (e.target === lightbox) closeLightbox();
+});
   function formatMonth(folderName) {
     const [year, month] = folderName.split("-");
     const date = new Date(year, month - 1);
