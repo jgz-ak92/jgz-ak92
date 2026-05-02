@@ -280,7 +280,7 @@ section {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 36px;
-  align-items: center;
+  align-items: stretch;
 }
 
 .image-box {
