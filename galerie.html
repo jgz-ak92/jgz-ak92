@@ -109,9 +109,16 @@
                   img.alt = `Galerie Foto ${title.textContent}`;
                   img.loading = "lazy";
 
-                  img.addEventListener("click", function() {
-                    openLightbox(img.src, img.alt);
-                  });
+                  img.addEventListener("click", function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  openLightbox(this.currentSrc || this.src, this.alt);
+});
+
+img.addEventListener("touchend", function(e) {
+  e.preventDefault();
+  openLightbox(this.currentSrc || this.src, this.alt);
+});
 
                   grid.appendChild(img);
                 });
