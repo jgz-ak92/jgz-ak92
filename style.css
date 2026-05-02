@@ -678,14 +678,6 @@ footer {
   }
       }
 
-/* FIX STARTSEITE GRÜN */
-body,
-main,
-section {
-  background: var(--green);
-  color: var(--white);
-}
-
 .section-title,
 .section-intro {
   color: var(--gold);
