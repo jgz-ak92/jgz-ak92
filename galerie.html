@@ -27,7 +27,7 @@
   <main>
     <section>
       <div class="container" id="gallery-container">
-        <!-- Galerie wird hier automatisch eingefügt -->
+        <!-- Galerie wird automatisch eingefügt -->
       </div>
     </section>
   </main>
@@ -59,8 +59,8 @@
         const container = document.getElementById("gallery-container");
 
         Object.keys(data)
-          .sort()
-          .reverse()
+          // 🔥 Monate: neueste zuerst
+          .sort((a, b) => new Date(b) - new Date(a))
           .forEach(folder => {
             const monthDiv = document.createElement("div");
             monthDiv.className = "gallery-month";
@@ -72,12 +72,16 @@
             const grid = document.createElement("div");
             grid.className = "photo-grid";
 
-            data[folder].forEach(file => {
-              const img = document.createElement("img");
-              img.src = `bilder/galerie/${folder}/${file}`;
-              img.alt = `Galerie Foto ${title.textContent}`;
-              grid.appendChild(img);
-            });
+            // 🔥 Bilder: neueste zuerst
+            data[folder]
+              .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+              .reverse()
+              .forEach(file => {
+                const img = document.createElement("img");
+                img.src = `bilder/galerie/${folder}/${file}`;
+                img.alt = `Galerie Foto ${title.textContent}`;
+                grid.appendChild(img);
+              });
 
             monthDiv.appendChild(grid);
             container.appendChild(monthDiv);
