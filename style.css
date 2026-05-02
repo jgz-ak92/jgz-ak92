@@ -309,6 +309,7 @@ section {
 }
 
 .event {
+  color: var(--dark)
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
@@ -337,7 +338,7 @@ section {
 }
 
 .event-title {
-  color: var(--dark)
+  color: var(--green)
   font-weight: 800;
   margin-bottom: 4px;
 }
