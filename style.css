@@ -482,6 +482,11 @@ details[open] summary::after {
   inset: 0;
   width: 100vw;
   height: 100dvh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 28px;
+  background: rgba(0,0,0,0.88);
   z-index: 99999;
   touch-action: manipulation;
 }
@@ -494,10 +499,17 @@ details[open] summary::after {
   max-width: 95vw;
   max-height: 85dvh;
   object-fit: contain;
+  border-radius: 14px;
 }
 
 .lightbox-close {
   position: fixed;
+  top: 18px;
+  right: 26px;
+  color: var(--white);
+  font-size: 3rem;
+  line-height: 1;
+  cursor: pointer;
   z-index: 100000;
 }
 
