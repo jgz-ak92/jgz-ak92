@@ -1,5 +1,4 @@
 function loadRotatingBanner() {
-//  const messages = ["🍻 Schützenfest 19.06. – 24.06. – Wir freuen uns auf euch! 🍻","✨ Neuigkeiten: Unsere Galerie wurde aktualisiert – schaut gerne rein! ✨"];
 
  const messages = ["🍻 Schützenfest 19.06. – 24.06. – Wir freuen uns auf euch! 🍻", "BREAKING NEWS!!! Wir haben einen neuen Zugkönig...👑 Herzlichen Glückwunsch, Sascha II. Vidahl 👑"];
 
