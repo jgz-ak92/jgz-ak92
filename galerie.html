@@ -167,11 +167,6 @@ fetch("bilder/galerie/gallery.json")
                       openLightbox(this.currentSrc || this.src, this.alt);
                     });
 
-                    img.addEventListener("touchend", function(e) {
-                      e.preventDefault();
-                      openLightbox(this.currentSrc || this.src, this.alt);
-                    });
-
                     grid.appendChild(img);
                   });
 
