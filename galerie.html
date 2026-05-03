@@ -66,14 +66,14 @@
   </footer>
 
   <script>
-    const lightbox = document.getElementById("lightbox");
+const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 const lightboxClose = document.querySelector(".lightbox-close");
 
 function toggleMenu() {
   document.getElementById("navLinks").classList.toggle("active");
 }
-    
+
 function openLightbox(src, alt) {
   lightboxImg.src = src;
   lightboxImg.alt = alt || "Großansicht";
@@ -93,91 +93,99 @@ lightboxClose.addEventListener("touchend", closeLightbox);
 lightbox.addEventListener("click", function(e) {
   if (e.target === lightbox) closeLightbox();
 });
-  function formatMonth(folderName) {
-    const [year, month] = folderName.split("-");
-    const date = new Date(year, month - 1);
 
-    return date.toLocaleString("de-DE", {
-      month: "long",
-      year: "numeric"
+function formatMonth(folderName) {
+  const [year, month] = folderName.split("-");
+  const date = new Date(year, month - 1);
+
+  return date.toLocaleString("de-DE", {
+    month: "long",
+    year: "numeric"
+  });
+}
+
+fetch("bilder/galerie/gallery.json")
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById("gallery-container");
+
+    const years = {};
+
+    Object.keys(data).forEach(folder => {
+      const year = folder.split("-")[0];
+      if (!years[year]) years[year] = [];
+      years[year].push(folder);
     });
-  }
 
-  fetch("bilder/galerie/gallery.json")
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById("gallery-container");
+    Object.keys(years)
+      .sort((a, b) => b - a)
+      .forEach(year => {
 
-      // 🔥 Daten nach Jahr gruppieren
-      const years = {};
+        const details = document.createElement("details");
+        details.className = "gallery-year";
+        details.open = true;
 
-      Object.keys(data).forEach(folder => {
-        const year = folder.split("-")[0];
-        if (!years[year]) years[year] = [];
-        years[year].push(folder);
+        const summary = document.createElement("summary");
+        summary.textContent = year;
+        details.appendChild(summary);
+
+        years[year]
+          .sort((a, b) => new Date(b) - new Date(a))
+          .forEach(folder => {
+
+            const monthDiv = document.createElement("div");
+            monthDiv.className = "gallery-month";
+
+            const title = document.createElement("h2");
+            title.textContent = formatMonth(folder);
+            monthDiv.appendChild(title);
+
+            Object.keys(data[folder])
+              .sort((a, b) => a.localeCompare(b, "de-DE", { numeric: true }))
+              .forEach(eventName => {
+
+                const eventTitle = document.createElement("h3");
+                eventTitle.className = "gallery-event-title";
+                eventTitle.textContent = eventName.replaceAll("-", " ");
+                monthDiv.appendChild(eventTitle);
+
+                const grid = document.createElement("div");
+                grid.className = "photo-grid";
+
+                data[folder][eventName]
+                  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+                  .forEach(file => {
+
+                    const img = document.createElement("img");
+                    img.src = `bilder/galerie/${folder}/${eventName}/${file}`;
+                    img.alt = `${eventName} ${title.textContent}`;
+                    img.loading = "lazy";
+
+                    img.addEventListener("click", function(e) {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      openLightbox(this.currentSrc || this.src, this.alt);
+                    });
+
+                    img.addEventListener("touchend", function(e) {
+                      e.preventDefault();
+                      openLightbox(this.currentSrc || this.src, this.alt);
+                    });
+
+                    grid.appendChild(img);
+                  });
+
+                monthDiv.appendChild(grid);
+              });
+
+            details.appendChild(monthDiv);
+          });
+
+        container.appendChild(details);
       });
-
-      // 🔥 Jahre sortieren (neueste zuerst)
-      Object.keys(years)
-        .sort((a, b) => b - a)
-        .forEach(year => {
-
-          const details = document.createElement("details");
-          details.className = "gallery-year";
-          details.open = true; // standardmäßig geöffnet
-
-          const summary = document.createElement("summary");
-          summary.textContent = year;
-          details.appendChild(summary);
-
-          // Monate im Jahr sortieren
-          years[year]
-            .sort((a, b) => new Date(b) - new Date(a))
-            .forEach(folder => {
-
-              const monthDiv = document.createElement("div");
-              monthDiv.className = "gallery-month";
-
-              const title = document.createElement("h2");
-              title.textContent = formatMonth(folder);
-              monthDiv.appendChild(title);
-
-              const grid = document.createElement("div");
-              grid.className = "photo-grid";
-
-              data[folder]
-                .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
-                .reverse()
-                .forEach(file => {
-                  const img = document.createElement("img");
-                  img.src = `bilder/galerie/${folder}/${file}`;
-                  img.alt = `Galerie Foto ${title.textContent}`;
-                  img.loading = "lazy";
-
-                  img.addEventListener("click", function(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  openLightbox(this.currentSrc || this.src, this.alt);
-});
-
-img.addEventListener("touchend", function(e) {
-  e.preventDefault();
-  openLightbox(this.currentSrc || this.src, this.alt);
-});
-
-                  grid.appendChild(img);
-                });
-
-              monthDiv.appendChild(grid);
-              details.appendChild(monthDiv);
-            });
-
-          container.appendChild(details);
-        });
-    })
-    .catch(error => {
-      console.error("Fehler beim Laden der Galerie:", error);
-    });
-</script>
-</body>
+  })
+  .catch(error => {
+    console.error("Fehler beim Laden der Galerie:", error);
+  });
+</script></body>
 </html>
