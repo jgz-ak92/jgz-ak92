@@ -28,19 +28,30 @@ jobs:
           gallery = {}
 
           if os.path.exists(base):
-              for folder in sorted(os.listdir(base), reverse=True):
-                  folder_path = os.path.join(base, folder)
+              for month_folder in sorted(os.listdir(base), reverse=True):
+                  month_path = os.path.join(base, month_folder)
 
-                  if not os.path.isdir(folder_path):
+                  if not os.path.isdir(month_path):
                       continue
 
-                  images = [
-                      file for file in sorted(os.listdir(folder_path))
-                      if file.lower().endswith(allowed)
-                  ]
+                  events = {}
 
-                  if images:
-                      gallery[folder] = images
+                  for event_folder in sorted(os.listdir(month_path)):
+                      event_path = os.path.join(month_path, event_folder)
+
+                      if not os.path.isdir(event_path):
+                          continue
+
+                      images = [
+                          file for file in sorted(os.listdir(event_path))
+                          if file.lower().endswith(allowed)
+                      ]
+
+                      if images:
+                          events[event_folder] = images
+
+                  if events:
+                      gallery[month_folder] = events
 
           with open(os.path.join(base, "gallery.json"), "w", encoding="utf-8") as f:
               json.dump(gallery, f, ensure_ascii=False, indent=2)
