@@ -82,7 +82,7 @@ function formatEventTitle(name) {
     .replace(/\bVatertag\b/gi, "Vatertag")
     .replace(/\bAusflug\b/gi, "Ausflug")
     .replace(/\bAk\b/g, "AK")
-    .replace(/(^|\s)\S/g, char => char.toUpperCase());
+    return name.replace(/(^|\s)[a-zäöü]/g, char => char.toUpperCase());
 }
   
   fetch("bilder/galerie/gallery.json")
