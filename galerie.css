@@ -1,105 +1,16 @@
-/* GALERIE */
-
 body.galerie #gallery-container {
   max-width: 1100px;
-  width: 100%;
   margin: 0 auto;
 }
 
-body.galerie .photo-grid {
-  display: flex !important;
-  flex-direction: row !important;
-  width: 100% !important;
-  gap: 18px !important;
-  align-items: flex-start !important;
-}
-
-
-body.galerie .photo-column {
-  flex: 1 1 0 !important;
-  min-width: 0 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 18px !important;
-}
-
-body.galerie .photo-column img,
-body.galerie .photo-column video {
-  width: 100% !important;
-  height: auto !important;
-  display: block !important;
-  object-fit: contain !important;
-}
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-body.galerie,
-body.galerie main,
-body.galerie section {
-  background: var(--green);
-  color: var(--white);
-}
-
-.subpage-header {
-  min-height: auto;
-}
-
-.subpage-hero {
-  flex: 1;
-  max-width: 1100px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 50px 20px 70px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.subpage-hero .section-title,
-.gallery-month,
-.gallery-month h2,
-.gallery-year summary {
-  color: var(--gold);
-}
-
-.subpage-hero p {
-  color: #f2f2f2;
-  font-size: 1.2rem;
-}
-
-.gallery-month {
-  font-family: 'OldLondon', cursive;
-  margin-bottom: 40px;
-}
-
-.gallery-month h2 {
-  font-family: 'OldLondon', cursive;
-  margin-bottom: 18px;
-  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-}
-
-.gallery-year {
-  margin-bottom: 56px;
-}
-
-.gallery-year summary {
-  background: var(--green);
-  color: var(--white);
-  font-family: 'OldLondon', cursive;
-  font-size: clamp(2rem, 4vw, 2.6rem);
-  font-weight: 800;
-  cursor: pointer;
-  margin-bottom: 10px;
-  list-style: none;
-  padding: 10px 0;
-  border-bottom: 2px solid var(--gold);
+/* Masonry */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
 }
 
 .photo-column {
-  flex: 1;
-  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -110,83 +21,42 @@ body.galerie section {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: contain;
   border-radius: 18px;
+  object-fit: contain;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   cursor: pointer;
 }
 
+/* Responsive */
 @media (max-width: 850px) {
-  .photo-column {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 14px;
   }
 }
 
-.gallery-year summary::after {
-  content: "▼";
-  float: right;
-  transition: transform 0.2s;
+@media (max-width: 500px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-details[open] summary::after {
-  transform: rotate(180deg);
-}
-
-/* Event Titel */
-.gallery-month .gallery-event-title {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--white);
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  font-weight: 700;
-  margin: 30px 0 10px;
-  padding-bottom: 6px;
-  border-bottom: 2px solid rgba(214,168,79,0.4);
-}
-
-/* LIGHTBOX */
+/* Lightbox */
 .lightbox {
   position: fixed;
   inset: 0;
-  width: 100vw;
-  height: 100dvh;
   display: none;
   justify-content: center;
   align-items: center;
-  padding: 28px;
-  background: rgba(0,0,0,0.88);
-  z-index: 99999;
-  touch-action: manipulation;
+  background: rgba(0,0,0,0.9);
 }
 
 .lightbox.active {
   display: flex;
 }
 
-.lightbox img {
-  max-width: 95vw;
-  max-height: 85dvh;
-  object-fit: contain;
-  border-radius: 14px;
-}
-
-.lightbox-close {
-  position: fixed;
-  top: 18px;
-  right: 26px;
-  color: var(--white);
-  font-size: 3rem;
-  cursor: pointer;
-}
-
+.lightbox img,
 .lightbox video {
-  max-width: 95vw;
-  max-height: 85dvh;
-  border-radius: 14px;
+  max-width: 90vw;
+  max-height: 85vh;
 }
-
-#lightbox-img,
-#lightbox-video {
-  display: none;
-}
-
-
