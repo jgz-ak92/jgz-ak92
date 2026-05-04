@@ -192,10 +192,24 @@ let element;
 
 if (isVideo) {
   element = document.createElement("video");
-  element.src = filePath;
-  element.controls = true;
+
+  const source = document.createElement("source");
+  source.src = encodeURI(filePath);
+  source.type = "video/mp4";
+
+  element.appendChild(source);
+
+  element.controls = false;
   element.preload = "metadata";
+  element.muted = true;
   element.playsInline = true;
+
+  element.addEventListener("click", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    openLightbox(filePath, `${eventName} ${title.textContent}`, "video");
+  });
+
 } else {
   element = document.createElement("img");
   element.src = filePath;
@@ -205,7 +219,7 @@ if (isVideo) {
   element.addEventListener("click", function(e) {
     e.preventDefault();
     e.stopPropagation();
-    openLightbox(this.currentSrc || this.src, this.alt);
+    openLightbox(this.currentSrc || this.src, this.alt, "image");
   });
 }
 
