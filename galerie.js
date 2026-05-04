@@ -156,7 +156,7 @@ function formatEventTitle(name) {
   element.controls = true;
   element.preload = "metadata";
   element.playsInline = true;
-  element.muted = true;
+  element.muted = False;
 
   const source = document.createElement("source");
   source.src = encodeURI(filePath);
