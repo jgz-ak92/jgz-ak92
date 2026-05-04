@@ -1,26 +1,21 @@
+/* Container */
 body.galerie #gallery-container {
   max-width: 1100px;
   margin: 0 auto;
 }
 
-/* Masonry */
+/* Masonry via Columns */
 .photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  column-count: 3;
+  column-gap: 18px;
 }
 
-.photo-column {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.photo-column img,
-.photo-column video {
+.photo-grid img,
+.photo-grid video {
   width: 100%;
   height: auto;
-  display: block;
+  margin-bottom: 18px;
+  break-inside: avoid;
   border-radius: 18px;
   object-fit: contain;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
@@ -30,18 +25,23 @@ body.galerie #gallery-container {
 /* Responsive */
 @media (max-width: 850px) {
   .photo-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    column-count: 2;
+    column-gap: 14px;
+  }
+
+  .photo-grid img,
+  .photo-grid video {
+    margin-bottom: 14px;
   }
 }
 
 @media (max-width: 500px) {
   .photo-grid {
-    grid-template-columns: 1fr;
+    column-count: 1;
   }
 }
 
-/* Lightbox */
+/* LIGHTBOX */
 .lightbox {
   position: fixed;
   inset: 0;
