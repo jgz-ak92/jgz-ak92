@@ -63,24 +63,25 @@ body.galerie section {
 }
 
 .photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 18px;
-  align-items: start;
 }
 
-.photo-grid img,
-.photo-grid video {
+.photo-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.photo-column img,
+.photo-column video {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 18px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   cursor: pointer;
-}
-
-.photo-grid img:nth-child(1) {
-  grid-row: span 2;
 }
 
 .gallery-year summary::after {
@@ -154,15 +155,11 @@ details[open] summary::after {
 /* MOBILE */
 @media (max-width: 850px) {
   .photo-grid {
-    grid-template-columns: repeat(2, 1fr);
     gap: 14px;
   }
 
-  .photo-grid img,
-  .photo-grid video {
-    height: auto;
-    object-fit: contain;
-    margin-bottom: 14px;
+  .photo-column {
+    gap: 14px;
   }
 }
 
