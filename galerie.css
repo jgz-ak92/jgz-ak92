@@ -68,6 +68,7 @@ body.galerie .gallery-year summary {
   color: var(--green);
   font-size: clamp(2rem, 4vw, 2.6rem);
   font-weight: 800;
+
 }
 
 /* MONAT */
@@ -76,6 +77,16 @@ body.galerie .gallery-month h2 {
   color: var(--gold);
   font-size: clamp(1.5rem, 2.5vw, 1.9rem);
   margin: 20px 0 4px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.gallery-month h2:: after{
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: var(--gold);
 }
 
 /* EVENT */
@@ -87,8 +98,7 @@ body.galerie .gallery-event-title {
   margin: 4px 0 14px;
   background: rgba(255,255,255,0.04);
   padding: 8px 12px;
-  border-top: 3px solid var(--green);
-  border-left: 3px solid var(--green);
+  border-bottom: 3px solid var(--green);
   border-radius: 6px;
 }
 
