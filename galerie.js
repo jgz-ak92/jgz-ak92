@@ -65,24 +65,28 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ========================= */
 
 function formatEventTitle(name) {
-  return name
+  let title = name
     .replaceAll("-", " ")
     .replaceAll("_", " ")
     .replace(/\s+/g, " ")
     .trim()
-    .replace(/\bSchuetzenfest\b/gi, "Schützenfest")
-    .replace(/\bKoenig\b/gi, "König")
-    .replace(/\bKroenung\b/gi, "Krönung")
-    .replace(/\bJaegerfest\b/gi, "Jägerfest")
-    .replace(/\bJaeger\b/gi, "Jäger")
-    .replace(/\bZugschiessen\b/gi, "Zugschießen")
-    .replace(/\bSchiessen\b/gi, "Schießen")
-    .replace(/\bSpaetkirmes\b/gi, "Spätkirmes")
-    .replace(/\bKickerturnier\b/gi, "Kickerturnier")
-    .replace(/\bVatertag\b/gi, "Vatertag")
-    .replace(/\bAusflug\b/gi, "Ausflug")
-    .replace(/\bAk\b/g, "AK")
-    return name.replace(/(^|\s)[a-zäöü]/g, char => char.toUpperCase());
+    .toLowerCase();
+
+  title = title
+    .replace(/\bschuetzenfest\b/g, "Schützenfest")
+    .replace(/\bkoenig\b/g, "König")
+    .replace(/\bkroenung\b/g, "Krönung")
+    .replace(/\bjaegerfest\b/g, "Jägerfest")
+    .replace(/\bjaeger\b/g, "Jäger")
+    .replace(/\bzugschiessen\b/g, "Zugschießen")
+    .replace(/\bschiessen\b/g, "Schießen")
+    .replace(/\bspaetkirmes\b/g, "Spätkirmes")
+    .replace(/\bkickerturnier\b/g, "Kickerturnier")
+    .replace(/\bvatertag\b/g, "Vatertag")
+    .replace(/\bausflug\b/g, "Ausflug")
+    .replace(/\bak\b/g, "AK");
+
+  return title.replace(/(^|\s)[a-zäöü]/g, char => char.toUpperCase());
 }
   
   fetch("bilder/galerie/gallery.json")
