@@ -85,10 +85,10 @@ body.galerie .gallery-event-title {
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   font-weight: 700;
   margin: 4px 0 14px;
-  background: rgba(255,255,255,0.04)
+  background: rgba(255,255,255,0.04);
   padding: 8px 12px;
-  border-top: 3px solid var(--gold)
-  border-left: 3px solid var(--gold);
+  border-top: 3px solid var(--green);
+  border-left: 3px solid var(--green);
   border-radius: 6px;
 }
 
