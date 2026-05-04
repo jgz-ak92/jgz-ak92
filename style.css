@@ -380,103 +380,6 @@ section {
   color: #e9e9e9;
 }
 
-/* GALERIE */
-body.galerie,
-body.galerie main,
-body.galerie section {
-  background: var(--green);
-  color: var(--white);
-}
-
-.subpage-header {
-  min-height: auto;
-}
-
-.subpage-hero {
-  flex: 1;
-  max-width: 1100px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 50px 20px 70px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.subpage-hero .section-title,
-.gallery-month,
-.gallery-month h2,
-.gallery-year summary {
-  color: var(--gold);
-}
-
-.subpage-hero p {
-  color: #f2f2f2;
-  font-size: 1.2rem;
-}
-
-.gallery-month {
-  font-family: 'OldLondon', cursive;
-  margin-bottom: 56px;
-}
-
-.gallery-month h2 {
-  font-family: 'OldLondon', cursive;
-  margin-bottom: 18px;
-  font-size: 2rem;
-}
-
-.gallery-year {
-  margin-bottom: 40px;
-}
-
-.gallery-year summary {
-  background: var(--green);
-  font-family: 'OldLondon', cursive;
-  font-size: 2rem;
-  font-weight: 800;
-  cursor: pointer;
-  margin-bottom: 10px;
-  list-style: none;
-  padding: 10px 0;
-  border-bottom: 2px solid var(--gold);
-}
-
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.photo-grid img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 18px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-}
-
-.gallery-year summary::after,
-.decade-title::after {
-  content: "▼";
-  float: right;
-  transition: transform 0.2s;
-}
-
-details[open] summary::after {
-  transform: rotate(180deg);
-}
-
-.gallery-month .gallery-event-title {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--gold);
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin: 30px 0 10px;
-  padding-bottom: 6px;
-  border-bottom: 2px solid rgba(214,168,79,0.4);
-}
-
 /* LIGHTBOX */
 .lightbox {
   position: fixed;
@@ -494,24 +397,6 @@ details[open] summary::after {
 
 .lightbox.active {
   display: flex;
-}
-
-.lightbox img {
-  max-width: 95vw;
-  max-height: 85dvh;
-  object-fit: contain;
-  border-radius: 14px;
-}
-
-.lightbox-close {
-  position: fixed;
-  top: 18px;
-  right: 26px;
-  color: var(--white);
-  font-size: 3rem;
-  line-height: 1;
-  cursor: pointer;
-  z-index: 100000;
 }
 
 /* KÖNIGE */
@@ -676,16 +561,7 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .photo-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  }
-
-  .photo-grid img {
-    height: 150px;
-    object-fit: cover;
-    cursor: pointer;
-  }
-      }
+        }
 
 .section-title,
 .section-intro {
