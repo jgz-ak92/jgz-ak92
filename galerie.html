@@ -4,73 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Galerie | Alte Kameraden</title>
-  <meta name="description" content="Galerie des Jägerzugs Alte Kameraden." />
+
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="galerie.css">
 </head>
 
 <body class="galerie">
-  <header class="subpage-header">
-    
-    <nav>
-  <div class="nav-inner">
 
-    <!-- LOGO / optional -->
-    <div class="nav-title"></div>
+<header class="subpage-header">
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-title"></div>
 
-    <!-- BURGER BUTTON -->
-    <div class="burger" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <!-- NAV LINKS -->
-    <div class="nav-links" id="navLinks">
-     <!-- <a href="koenige.html">Könige</a> -->
-      <a href="index.html">Startseite</a>
-      <a href="index.html#termine">Termine</a>
-      <a href="index.html#kontakt">Kontakt</a>
-    </div>
-
-  </div>
-</nav>
-
-
-    <div class="subpage-hero">
-      <h1 class="section-title">Galerie</h1>
-      <p>Fotos und Erinnerungen unseres Jägerzugs.</p>
-    </div>
-  </header>
-
-  <main>
-    <section>
-      <div class="container" id="gallery-container">
-        <!-- Galerie wird automatisch eingefügt -->
+      <div class="burger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
       </div>
-    </section>
-  </main>
 
-  <div id="lightbox" class="lightbox">
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Startseite</a>
+        <a href="index.html#termine">Termine</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="subpage-hero">
+    <h1 class="section-title">Galerie</h1>
+    <p>Fotos und Erinnerungen unseres Jägerzugs.</p>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="container" id="gallery-container"></div>
+  </section>
+</main>
+
+<div id="lightbox" class="lightbox">
   <span class="lightbox-close">&times;</span>
-
-  <img id="lightbox-img" src="" alt="Großansicht">
-
-  <video id="lightbox-video" controls playsinline>
-    Dein Browser unterstützt keine Videos.
-  </video>
+  <img id="lightbox-img">
+  <video id="lightbox-video" controls></video>
 </div>
 
-  <footer>
-    <div class="footer-inner">
-      <div>© 2026 Jägerzug Alte Kameraden AK92</div>
-      <div class="footer-links">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="galerie.js"></script>
+<script src="galerie.js"></script>
 </body>
 </html>
