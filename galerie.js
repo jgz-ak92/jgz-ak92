@@ -30,63 +30,42 @@ lightbox.addEventListener("click", () => {
   lightboxVideo.pause();
 });
 
-/* ========================= */
+/* Galerie laden */
 
 fetch("bilder/galerie/gallery.json")
-.then(res => res.json())
-.then(data => {
+  .then(res => res.json())
+  .then(data => {
 
-Object.keys(data).forEach(folder => {
+    Object.keys(data).forEach(folder => {
 
-  const grid = document.createElement("div");
-  grid.className = "photo-grid";
+      const grid = document.createElement("div");
+      grid.className = "photo-grid";
 
-  const columns = [];
+      data[folder].forEach(file => {
 
-  const columnCount = window.innerWidth < 850 ? 2 : 3;
+        const path = `bilder/galerie/${folder}/${file}`;
+        const isVideo = file.match(/\.(mp4|webm)$/i);
 
-  for (let i = 0; i < columnCount; i++) {
-    const col = document.createElement("div");
-    col.className = "photo-column";
-    grid.appendChild(col);
-    columns.push(col);
-  }
+        let el;
 
-  function getShortestColumn() {
-    return columns.reduce((a, b) =>
-      a.scrollHeight < b.scrollHeight ? a : b
-    );
-  }
+        if (isVideo) {
+          el = document.createElement("video");
+          el.src = path;
+        } else {
+          el = document.createElement("img");
+          el.src = path;
+        }
 
-  data[folder].forEach(file => {
+        el.addEventListener("click", () => {
+          openLightbox(path, isVideo ? "video" : "image");
+        });
 
-    const path = `bilder/galerie/${folder}/${file}`;
-    const isVideo = file.match(/\.(mp4|webm)$/i);
+        grid.appendChild(el);
+      });
 
-    let el;
-
-    if (isVideo) {
-      el = document.createElement("video");
-      el.src = path;
-    } else {
-      el = document.createElement("img");
-      el.src = path;
-    }
-
-    el.onload = el.onloadedmetadata = () => {
-      getShortestColumn().appendChild(el);
-    };
-
-    el.addEventListener("click", () => {
-      openLightbox(path, isVideo ? "video" : "image");
+      container.appendChild(grid);
     });
 
   });
-
-  container.appendChild(grid);
-
-});
-
-});
 
 });
