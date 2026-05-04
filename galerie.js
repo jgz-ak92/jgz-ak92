@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   const container = document.getElementById("gallery-container");
 
   const lightbox = document.getElementById("lightbox");
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       lightboxVideo.style.display = "block";
       lightboxVideo.src = encodeURI(src);
       lightboxVideo.load();
+
       lightboxVideo.play().catch(() => {});
     } else {
       lightboxVideo.pause();
@@ -60,22 +62,28 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === lightbox) closeLightbox();
   });
 
+  /* ========================= */
+
   fetch("bilder/galerie/gallery.json")
     .then(response => response.json())
     .then(data => {
+
       container.innerHTML = "";
 
       const years = {};
 
+      // Jahre gruppieren
       Object.keys(data).forEach(folder => {
         const year = folder.split("-")[0];
         if (!years[year]) years[year] = [];
         years[year].push(folder);
       });
 
+      // Jahre sortieren
       Object.keys(years)
         .sort((a, b) => b - a)
         .forEach(year => {
+
           const details = document.createElement("details");
           details.className = "gallery-year";
           details.open = true;
@@ -87,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
           years[year]
             .sort((a, b) => new Date(b) - new Date(a))
             .forEach(folder => {
+
               const monthDiv = document.createElement("div");
               monthDiv.className = "gallery-month";
 
@@ -94,9 +103,11 @@ document.addEventListener("DOMContentLoaded", () => {
               monthTitle.textContent = formatMonth(folder);
               monthDiv.appendChild(monthTitle);
 
+              // 👉 EVENTS durchgehen
               Object.keys(data[folder])
                 .sort((a, b) => a.localeCompare(b, "de-DE", { numeric: true }))
                 .forEach(eventName => {
+
                   const eventTitle = document.createElement("h3");
                   eventTitle.className = "gallery-event-title";
                   eventTitle.textContent = eventName.replaceAll("-", " ");
@@ -105,9 +116,11 @@ document.addEventListener("DOMContentLoaded", () => {
                   const grid = document.createElement("div");
                   grid.className = "photo-grid";
 
+                  // 👉 BILDER im Event
                   data[folder][eventName]
-                    .sort((a, b) => a.localeCompare(b, "de-DE", { numeric: true }))
+                    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
                     .forEach(file => {
+
                       const filePath = `bilder/galerie/${folder}/${eventName}/${file}`;
                       const isVideo = /\.(mp4|webm|mov)$/i.test(file);
 
@@ -126,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
                           e.stopPropagation();
                           openLightbox(filePath, "video");
                         });
+
                       } else {
                         element = document.createElement("img");
                         element.src = filePath;
@@ -154,4 +168,5 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(error => {
       console.error("Fehler beim Laden der Galerie:", error);
     });
+
 });
