@@ -14,10 +14,11 @@ body.galerie #gallery-container {
 .photo-grid video {
   width: 100%;
   height: auto;
+  display: block;
   margin-bottom: 18px;
   break-inside: avoid;
-  border-radius: 18px;
   object-fit: contain;
+  border-radius: 18px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   cursor: pointer;
 }
