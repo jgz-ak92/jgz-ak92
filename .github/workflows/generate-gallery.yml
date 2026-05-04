@@ -24,7 +24,7 @@ jobs:
           import os, json
 
           base = "bilder/galerie"
-          allowed = (".jpg", ".jpeg", ".png", ".webp", ".gif")
+          allowed = (".jpg", ".jpeg", ".png", ".webp", ".gif", ".mp4", ".mov", ".webm")
           gallery = {}
 
           if os.path.exists(base):
