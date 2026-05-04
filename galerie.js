@@ -64,6 +64,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ========================= */
 
+function formatEventTitle(name) {
+  return name
+    .replaceAll("-", " ")
+    .replaceAll("_", " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\bSchuetzenfest\b/gi, "Schützenfest")
+    .replace(/\bKoenig\b/gi, "König")
+    .replace(/\bKroenung\b/gi, "Krönung")
+    .replace(/\bJaegerfest\b/gi, "Jägerfest")
+    .replace(/\bJaeger\b/gi, "Jäger")
+    .replace(/\bZugschiessen\b/gi, "Zugschießen")
+    .replace(/\bSchiessen\b/gi, "Schießen")
+    .replace(/\bSpaetkirmes\b/gi, "Spätkirmes")
+    .replace(/\bKickerturnier\b/gi, "Kickerturnier")
+    .replace(/\bVatertag\b/gi, "Vatertag")
+    .replace(/\bAusflug\b/gi, "Ausflug")
+    .replace(/\bAk\b/g, "AK")
+    .replace(/\b\w/g, char => char.toUpperCase());
+}
+  
   fetch("bilder/galerie/gallery.json")
     .then(response => response.json())
     .then(data => {
@@ -110,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                   const eventTitle = document.createElement("h3");
                   eventTitle.className = "gallery-event-title";
-                  eventTitle.textContent = eventName.replaceAll("-", " ");
+                  eventTitle.textContent = formatEventTitle(eventName);
                   monthDiv.appendChild(eventTitle);
 
                   const grid = document.createElement("div");
