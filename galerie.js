@@ -73,6 +73,7 @@ function formatEventTitle(name) {
     .toLowerCase();
 
   title = title
+    .replace(/^(\d{2}) (\d{2})/, "$1.$2.");
     .replace(/\bschuetzenfest\b/g, "Schützenfest")
     .replace(/\bkoenig\b/g, "König")
     .replace(/\bkroenung\b/g, "Krönung")
