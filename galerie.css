@@ -107,10 +107,10 @@ body.galerie .gallery-month h2 {
 .gallery-month h2::after{
   content: "";
   display: block;
-  width: clamp(80px, 20%, 200px);
-  height: 5px;
+  width: clamp(80px, 20%, 200px) !important;
+  height: 5px !important;
   background: var(--gold);
-  margin-top: 1px;
+  margin-top: 1px !important;
   border-radius: 999px;
   float: none;
 }
