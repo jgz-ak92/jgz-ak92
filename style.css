@@ -475,6 +475,17 @@ body.galerie section {
 details[open] summary::after {
   transform: rotate(180deg);
 }
+/* Galerie */
+
+.gallery-event-title {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--gold);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 30px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid rgba(214,168,79,0.4);
+}
 
 /* LIGHTBOX */
 .lightbox {
