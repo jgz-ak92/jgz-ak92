@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function formatEventTitle(name) {
   let title = name
     .replaceAll("-", " ")
-    .replaceAll("_", " ")
+    .replaceAll("_", ".")
     .replace(/\s+/g, " ")
     .trim()
     .toLowerCase();
