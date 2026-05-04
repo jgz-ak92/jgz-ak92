@@ -181,7 +181,6 @@ function formatEventTitle(name) {
 
 grid.appendChild(element);
                     
-
                   monthDiv.appendChild(grid);
                 });
 
