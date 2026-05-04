@@ -97,6 +97,8 @@ body.galerie .gallery-event-title {
   margin: 8px 0 14px;
   padding-bottom: 6px;
   border-bottom: 2px solid rgba(214,168,79,0.45);
+   padding-left: 12px;
+  border-left: 3px solid var(--gold);
 }
 
 /* PFEIL */
