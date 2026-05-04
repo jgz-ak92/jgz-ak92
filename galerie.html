@@ -157,18 +157,31 @@ fetch("bilder/galerie/gallery.json")
                   .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
                   .forEach(file => {
 
-                    const img = document.createElement("img");
-                    img.src = `bilder/galerie/${folder}/${eventName}/${file}`;
-                    img.alt = `${eventName} ${title.textContent}`;
-                    img.loading = "lazy";
+                    const filePath = `bilder/galerie/${folder}/${eventName}/${file}`;
+const isVideo = file.match(/\.(mp4|webm|mov)$/i);
 
-                    img.addEventListener("click", function(e) {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      openLightbox(this.currentSrc || this.src, this.alt);
-                    });
+let element;
 
-                    grid.appendChild(img);
+if (isVideo) {
+  element = document.createElement("video");
+  element.src = filePath;
+  element.controls = true;
+  element.preload = "metadata";
+  element.playsInline = true;
+} else {
+  element = document.createElement("img");
+  element.src = filePath;
+  element.alt = `${eventName} ${title.textContent}`;
+  element.loading = "lazy";
+
+  element.addEventListener("click", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    openLightbox(this.currentSrc || this.src, this.alt);
+  });
+}
+
+grid.appendChild(element);
                   });
 
                 monthDiv.appendChild(grid);
