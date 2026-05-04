@@ -63,8 +63,10 @@ body.galerie section {
 }
 
 .photo-grid {
-  column-count: 3;
-  column-gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  align-items: start;
 }
 
 .photo-grid img,
@@ -72,11 +74,13 @@ body.galerie section {
   width: 100%;
   height: auto;
   display: block;
-  margin-bottom: 18px;
-  break-inside: avoid;
   border-radius: 18px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   cursor: pointer;
+}
+
+.photo-grid img:nth-child(1) {
+  grid-row: span 2;
 }
 
 .gallery-year summary::after {
@@ -150,8 +154,8 @@ details[open] summary::after {
 /* MOBILE */
 @media (max-width: 850px) {
   .photo-grid {
-    column-count: 2;
-    column-gap: 14px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
 
   .photo-grid img,
@@ -164,6 +168,6 @@ details[open] summary::after {
 
 @media (max-width: 500px) {
   .photo-grid {
-    column-count: 1;
+    grid-template-columns: 1fr;
   }
 }
