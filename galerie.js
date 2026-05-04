@@ -169,4 +169,4 @@ grid.appendChild(element);
   .catch(error => {
     console.error("Fehler beim Laden der Galerie:", error);
   });
-}
+});
