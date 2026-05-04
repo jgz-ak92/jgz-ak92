@@ -133,6 +133,13 @@ details[open] summary::after {
   cursor: pointer;
 }
 
+.photo-grid video {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
 /* MOBILE */
 @media (max-width: 850px) {
   .photo-grid {
