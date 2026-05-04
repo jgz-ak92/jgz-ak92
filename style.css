@@ -467,7 +467,7 @@ details[open] summary::after {
   transform: rotate(180deg);
 }
 
-.gallery month .gallery-event-title {
+.gallery-month .gallery-event-title {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--gold);
   font-size: 1.2rem;
