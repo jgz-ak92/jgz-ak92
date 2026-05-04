@@ -133,11 +133,23 @@ details[open] summary::after {
   cursor: pointer;
 }
 
+.lightbox video {
+  max-width: 95vw;
+  max-height: 85dvh;
+  border-radius: 14px;
+}
+
+#lightbox-img,
+#lightbox-video {
+  display: none;
+}
+
 .photo-grid video {
   width: 100%;
   height: auto;
   border-radius: 18px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  cursor: pointer;
 }
 
 /* MOBILE */
