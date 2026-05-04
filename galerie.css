@@ -63,36 +63,22 @@ body.galerie #gallery-container {
 }
 
 /* JAHR */
-.gallery-year {
-  margin-bottom: 56px;
-}
-
-.gallery-year summary {
+body.galerie .gallery-year summary {
   font-family: 'OldLondon', cursive;
   color: var(--gold);
   font-size: clamp(2rem, 4vw, 2.6rem);
   font-weight: 800;
-  cursor: pointer;
-  list-style: none;
-  padding: 10px 0;
-  margin-bottom: 28px;
-  border-bottom: 2px solid var(--gold);
 }
 
 /* MONAT */
-.gallery-month {
-  margin-bottom: 44px;
-}
-
-.gallery-month h2 {
+body.galerie .gallery-month h2 {
   font-family: 'OldLondon', cursive;
   color: var(--gold);
   font-size: clamp(1.5rem, 2.5vw, 1.9rem);
-  margin: 22px 0 18px;
 }
 
 /* EVENT */
-.gallery-event-title {
+body.galerie .gallery-event-title {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--white);
   font-size: clamp(1rem, 1.5vw, 1.2rem);
