@@ -302,63 +302,6 @@ section {
     0 0 20px rgba(214,168,79,0.2);
 }
 
-/* TERMINE */
-.timeline {
-  display: grid;
-  gap: 16px;
-}
-
-.event {
-  color: var(--dark);
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  background: var(--white);
-  border-radius: 18px;
-  padding: 52px 18px 18px;
-  border-left: 6px solid var(--gold);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-}
-
-.event-month {
-  position: absolute;
-  top: 0;
-  right: 0;
-  min-width: 140px;
-  height: 36px;
-  background: linear-gradient(135deg, var(--green), var(--green-light));
-  color: #f5d27a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 800;
-  text-align: center;
-  border-top-right-radius: 18px;
-  border-bottom-left-radius: 14px;
-}
-
-.event-title {
-  color: var(--green);
-  font-weight: 800;
-  margin-bottom: 4px;
-}
-
-.event-month-group {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-.event-item {
-  padding-bottom: 18px;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-}
-
-.event-item:last-child {
-  padding-bottom: 0;
-  border-bottom: none;
-}
-
 /* KONTAKT */
 .contact-box {
   background: var(--green);
