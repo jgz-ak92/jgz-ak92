@@ -1,187 +1,92 @@
 document.addEventListener("DOMContentLoaded", () => {
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const lightboxVideo = document.getElementById("lightbox-video");
-const lightboxClose = document.querySelector(".lightbox-close");
+
+const container = document.getElementById("gallery-container");
 
 window.toggleMenu = function() {
   document.getElementById("navLinks").classList.toggle("active");
 };
 
-function openLightbox(src, alt, type = "image") {
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const lightboxVideo = document.getElementById("lightbox-video");
+
+function openLightbox(src, type) {
   lightbox.classList.add("active");
-  document.body.style.overflow = "hidden";
 
   if (type === "video") {
     lightboxImg.style.display = "none";
-    lightboxImg.src = "";
-
     lightboxVideo.style.display = "block";
-    lightboxVideo.src = encodeURI(src);
-    lightboxVideo.load();
-
-    lightboxVideo.play().catch(error => {
-    console.log("Video konnte nicht automatisch starten:", error);
-    });
+    lightboxVideo.src = src;
+    lightboxVideo.play();
   } else {
-    lightboxVideo.pause();
     lightboxVideo.style.display = "none";
-    lightboxVideo.src = "";
-
     lightboxImg.style.display = "block";
     lightboxImg.src = src;
-    lightboxImg.alt = alt || "Großansicht";
   }
 }
 
-function closeLightbox() {
+lightbox.addEventListener("click", () => {
   lightbox.classList.remove("active");
-
-  lightboxImg.src = "";
-  lightboxImg.style.display = "none";
-
   lightboxVideo.pause();
-  lightboxVideo.src = "";
-  lightboxVideo.style.display = "none";
-
-  document.body.style.overflow = "";
-}
-
-lightboxClose.addEventListener("click", closeLightbox);
-lightboxClose.addEventListener("touchend", closeLightbox);
-
-lightbox.addEventListener("click", function(e) {
-  if (e.target === lightbox) closeLightbox();
 });
 
-function formatMonth(folderName) {
-  const [year, month] = folderName.split("-");
-  const date = new Date(year, month - 1);
-
-  return date.toLocaleString("de-DE", {
-    month: "long",
-    year: "numeric"
-  });
-}
+/* ========================= */
 
 fetch("bilder/galerie/gallery.json")
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById("gallery-container");
+.then(res => res.json())
+.then(data => {
 
-    const years = {};
+Object.keys(data).forEach(folder => {
 
-    Object.keys(data).forEach(folder => {
-      const year = folder.split("-")[0];
-      if (!years[year]) years[year] = [];
-      years[year].push(folder);
-    });
+  const grid = document.createElement("div");
+  grid.className = "photo-grid";
 
-    Object.keys(years)
-      .sort((a, b) => b - a)
-      .forEach(year => {
+  const columns = [];
 
-        const details = document.createElement("details");
-        details.className = "gallery-year";
-        details.open = true;
+  const columnCount = window.innerWidth < 850 ? 2 : 3;
 
-        const summary = document.createElement("summary");
-        summary.textContent = year;
-        details.appendChild(summary);
+  for (let i = 0; i < columnCount; i++) {
+    const col = document.createElement("div");
+    col.className = "photo-column";
+    grid.appendChild(col);
+    columns.push(col);
+  }
 
-        years[year]
-          .sort((a, b) => new Date(b) - new Date(a))
-          .forEach(folder => {
+  function getShortestColumn() {
+    return columns.reduce((a, b) =>
+      a.scrollHeight < b.scrollHeight ? a : b
+    );
+  }
 
-            const monthDiv = document.createElement("div");
-            monthDiv.className = "gallery-month";
+  data[folder].forEach(file => {
 
-            const title = document.createElement("h2");
-            title.textContent = formatMonth(folder);
-            monthDiv.appendChild(title);
+    const path = `bilder/galerie/${folder}/${file}`;
+    const isVideo = file.match(/\.(mp4|webm)$/i);
 
-            Object.keys(data[folder])
-              .sort((a, b) => a.localeCompare(b, "de-DE", { numeric: true }))
-              .forEach(eventName => {
-
-                const eventTitle = document.createElement("h3");
-                eventTitle.className = "gallery-event-title";
-                eventTitle.textContent = eventName.replaceAll("-", " ");
-                monthDiv.appendChild(eventTitle);
-
-const grid = document.createElement("div");
-grid.className = "photo-grid";
-
-const columnCount = window.innerWidth <= 500 ? 1 : window.innerWidth <= 850 ? 2 : 3;
-
-const columns = [];
-
-for (let i = 0; i < columnCount; i++) {
-  const column = document.createElement("div");
-  column.className = "photo-column";
-  grid.appendChild(column);
-  columns.push(column);
-}
-
-function getShortestColumn() {
-  return columns.reduce((shortest, column) => {
-    return column.scrollHeight < shortest.scrollHeight ? column : shortest;
-  }, columns[0]);
-}
-
-data[folder][eventName]
-  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
-  .forEach(file => {
-    const filePath = `bilder/galerie/${folder}/${eventName}/${file}`;
-    const isVideo = file.match(/\.(mp4|webm|mov)$/i);
-
-    let element;
+    let el;
 
     if (isVideo) {
-      element = document.createElement("video");
-
-      const source = document.createElement("source");
-      source.src = encodeURI(filePath);
-      source.type = "video/mp4";
-
-      element.appendChild(source);
-
-      element.controls = true;
-      element.preload = "metadata";
-      element.muted = true;
-      element.playsInline = true;
-
-      element.addEventListener("click", function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        openLightbox(filePath, `${eventName} ${title.textContent}`, "video");
-      });
+      el = document.createElement("video");
+      el.src = path;
     } else {
-      element = document.createElement("img");
-      element.src = filePath;
-      element.alt = `${eventName} ${title.textContent}`;
-      element.loading = "lazy";
-
-      element.addEventListener("click", function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        openLightbox(this.currentSrc || this.src, this.alt, "image");
-      });
+      el = document.createElement("img");
+      el.src = path;
     }
 
-    getShortestColumn().appendChild(element);
+    el.onload = el.onloadedmetadata = () => {
+      getShortestColumn().appendChild(el);
+    };
+
+    el.addEventListener("click", () => {
+      openLightbox(path, isVideo ? "video" : "image");
+    });
+
   });
 
-                monthDiv.appendChild(grid);
-              });
+  container.appendChild(grid);
 
-            details.appendChild(monthDiv);
-          });
+});
 
-        container.appendChild(details);
-      });
-  })
-  .catch(error => {
-    console.error("Fehler beim Laden der Galerie:", error);
-  });
+});
+
 });
