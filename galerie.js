@@ -109,53 +109,68 @@ fetch("bilder/galerie/gallery.json")
                 eventTitle.textContent = eventName.replaceAll("-", " ");
                 monthDiv.appendChild(eventTitle);
 
-                const grid = document.createElement("div");
-                grid.className = "photo-grid";
+const grid = document.createElement("div");
+grid.className = "photo-grid";
 
-                data[folder][eventName]
-                  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
-                  .forEach(file => {
+const columnCount = window.innerWidth <= 500 ? 1 : window.innerWidth <= 850 ? 2 : 3;
 
-                    const filePath = `bilder/galerie/${folder}/${eventName}/${file}`;
-const isVideo = file.match(/\.(mp4|webm|mov)$/i);
+const columns = [];
 
-let element;
-
-if (isVideo) {
-  element = document.createElement("video");
-
-  const source = document.createElement("source");
-  source.src = encodeURI(filePath);
-  source.type = "video/mp4";
-
-  element.appendChild(source);
-
-  element.controls = true;
-  element.preload = "metadata";
-  element.muted = true;
-  element.playsInline = true;
-
-  element.addEventListener("click", function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    openLightbox(filePath, `${eventName} ${title.textContent}`, "video");
-  });
-
-} else {
-  element = document.createElement("img");
-  element.src = filePath;
-  element.alt = `${eventName} ${title.textContent}`;
-  element.loading = "lazy";
-
-  element.addEventListener("click", function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    openLightbox(this.currentSrc || this.src, this.alt, "image");
-  });
+for (let i = 0; i < columnCount; i++) {
+  const column = document.createElement("div");
+  column.className = "photo-column";
+  grid.appendChild(column);
+  columns.push(column);
 }
 
-grid.appendChild(element);
-                  });
+function getShortestColumn() {
+  return columns.reduce((shortest, column) => {
+    return column.scrollHeight < shortest.scrollHeight ? column : shortest;
+  }, columns[0]);
+}
+
+data[folder][eventName]
+  .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+  .forEach(file => {
+    const filePath = `bilder/galerie/${folder}/${eventName}/${file}`;
+    const isVideo = file.match(/\.(mp4|webm|mov)$/i);
+
+    let element;
+
+    if (isVideo) {
+      element = document.createElement("video");
+
+      const source = document.createElement("source");
+      source.src = encodeURI(filePath);
+      source.type = "video/mp4";
+
+      element.appendChild(source);
+
+      element.controls = true;
+      element.preload = "metadata";
+      element.muted = true;
+      element.playsInline = true;
+
+      element.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openLightbox(filePath, `${eventName} ${title.textContent}`, "video");
+      });
+    } else {
+      element = document.createElement("img");
+      element.src = filePath;
+      element.alt = `${eventName} ${title.textContent}`;
+      element.loading = "lazy";
+
+      element.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openLightbox(this.currentSrc || this.src, this.alt, "image");
+      });
+    }
+
+    getShortestColumn().appendChild(element);
+  });
 
                 monthDiv.appendChild(grid);
               });
