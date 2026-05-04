@@ -109,7 +109,7 @@ body.galerie .gallery-month h2::after{
   display: block;
   width: clamp(80px, 20%, 200px);
   height: 5px;
-  background: linear-gradient(to right, var(--gold), rgba(214,168,79,0.5), rgba(214,168,79,0));
+  background: red;
   margin-top: 1px;
   border-radius: 999px;
   float: none;
