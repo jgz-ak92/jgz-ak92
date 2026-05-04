@@ -75,7 +75,7 @@ body.galerie .gallery-month h2 {
   font-family: 'OldLondon', cursive;
   color: var(--gold);
   font-size: clamp(1.5rem, 2.5vw, 1.9rem);
-  margin: 20px 0 8px;
+  margin: 20px 0 4px;
 }
 
 body.galerie .gallery-month h2::after {
@@ -94,11 +94,12 @@ body.galerie .gallery-event-title {
   color: var(--green);
   font-size: clamp(1rem, 1.5vw, 1.2rem);
   font-weight: 700;
-  margin: 8px 0 14px;
-  padding-bottom: 6px;
+  margin: 4px 0 14px;
+  background: rgba(255,255,255,0.04)
+  padding: 8px 12px;
   border-bottom: 2px solid rgba(214,168,79,0.45);
-   padding-left: 12px;
   border-left: 3px solid var(--gold);
+  border-radius: 6px;
 }
 
 /* PFEIL */
