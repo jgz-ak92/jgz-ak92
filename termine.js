@@ -45,7 +45,7 @@ const termine = [
       {
         datum: "05.12.2026",
         titel: "Alljährliches Kickerturnier",
-        ort: ""
+        ort: "Wachlokal des Jägerzugs"
       }
     ]
   }
