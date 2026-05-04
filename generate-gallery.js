@@ -1,67 +1,44 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const galleryDir = 'bilder/galerie';
-const outputFile = 'gallery-data.json';
+const galleryDir = "bilder/galerie";
+const outputFile = path.join(galleryDir, "gallery.json");
 
-// Alle Monate mit deutschen Namen
-const monthNames = {
-  '01': 'Januar',
-  '02': 'Februar',
-  '03': 'März',
-  '04': 'April',
-  '05': 'Mai',
-  '06': 'Juni',
-  '07': 'Juli',
-  '08': 'August',
-  '09': 'September',
-  '10': 'Oktober',
-  '11': 'November',
-  '12': 'Dezember'
-};
+const allowed = [".jpg", ".jpeg", ".png", ".gif", ".webp", ".mp4", ".webm", ".mov"];
 
-// Bilder auslesen
 const galleryData = {};
 
 if (fs.existsSync(galleryDir)) {
-  const entries = fs.readdirSync(galleryDir);
-  
-  entries.forEach(entry => {
-    const match = entry.match(/^\\d{4}-(\\d{2})$/);
-    if (match) {
-      const year = match[1];
-      const month = match[2];
-      const monthPath = path.join(galleryDir, entry);
-      
-      if (fs.statSync(monthPath).isDirectory()) {
-        const files = fs.readdirSync(monthPath)
-          .filter(file => /.(jpg|jpeg|png|gif|webp)$/i.test(file))
-          .sort();
-        
-        if (files.length > 0) {
-          if (!galleryData[year]) {
-            galleryData[year] = [];
-          }
-          
-          galleryData[year].push({
-            month: monthNames[month],
-            monthNum: month,
-            images: files.map(file => `bilder/galerie/${entry}/${file}`)
-          });
+  const monthFolders = fs.readdirSync(galleryDir);
+
+  monthFolders.forEach(monthFolder => {
+    const match = monthFolder.match(/^(\d{4})-(\d{2})$/);
+    if (!match) return;
+
+    const monthPath = path.join(galleryDir, monthFolder);
+    if (!fs.statSync(monthPath).isDirectory()) return;
+
+    const eventFolders = fs.readdirSync(monthPath);
+
+    eventFolders.forEach(eventFolder => {
+      const eventPath = path.join(monthPath, eventFolder);
+      if (!fs.statSync(eventPath).isDirectory()) return;
+
+      const files = fs.readdirSync(eventPath)
+        .filter(file => allowed.includes(path.extname(file).toLowerCase()))
+        .sort((a, b) => a.localeCompare(b, "de-DE", { numeric: true }));
+
+      if (files.length > 0) {
+        if (!galleryData[monthFolder]) {
+          galleryData[monthFolder] = {};
         }
+
+        galleryData[monthFolder][eventFolder] = files;
       }
-    }
+    });
   });
 }
 
-// Nach Jahren und Monaten sortieren
-const sortedData = {};
-Object.keys(galleryData)
-  .sort((a, b) => b - a)
-  .forEach(year => {
-    sortedData[year] = galleryData[year].sort((a, b) => parseInt(b.monthNum) - parseInt(a.monthNum));
-  });
+fs.writeFileSync(outputFile, JSON.stringify(galleryData, null, 2), "utf8");
 
-// JSON speichern
-fs.writeFileSync(outputFile, JSON.stringify(sortedData, null, 2));
 console.log(`Gallery data generated: ${outputFile}`);
