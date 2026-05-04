@@ -415,15 +415,6 @@ body.galerie section {
   font-size: 1.2rem;
 }
 
-/* GALERIE */
-
-body.galerie,
-body.galerie main,
-body.galerie section {
-  background: var(--green);
-  color: var(--white);
-}
-
 .gallery-month {
   font-family: 'OldLondon', cursive;
   margin-bottom: 56px;
@@ -475,9 +466,8 @@ body.galerie section {
 details[open] summary::after {
   transform: rotate(180deg);
 }
-/* Galerie */
 
-.gallery-event-title {
+.gallery month .gallery-event-title {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--gold);
   font-size: 1.2rem;
