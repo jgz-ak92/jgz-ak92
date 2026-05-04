@@ -78,6 +78,16 @@ body.galerie .gallery-month h2 {
   margin: 20px 0 8px;
 }
 
+body.galerie .gallery-month h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--green);
+  margin-top: 6px;
+  opacity: 0.6;
+}
+
 /* EVENT */
 body.galerie .gallery-event-title {
   font-family: Arial, Helvetica, sans-serif;
