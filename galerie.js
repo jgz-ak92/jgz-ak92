@@ -127,34 +127,39 @@ document.addEventListener("DOMContentLoaded", () => {
                       let element;
 
                       if (isVideo) {
-                        element = document.createElement("video");
-                        element.src = encodeURI(filePath);
-                        element.controls = true;
-                        element.preload = "metadata";
-                        element.playsInline = true;
-                        element.muted = true;
+  element = document.createElement("video");
+  element.controls = true;
+  element.preload = "metadata";
+  element.playsInline = true;
+  element.muted = true;
 
-                        element.addEventListener("click", function (e) {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          openLightbox(filePath, "video");
-                        });
+  const source = document.createElement("source");
+  source.src = encodeURI(filePath);
+  source.type = file.toLowerCase().endsWith(".webm") ? "video/webm" : "video/mp4";
 
-                      } else {
-                        element = document.createElement("img");
-                        element.src = filePath;
-                        element.alt = `${eventName} ${monthTitle.textContent}`;
-                        element.loading = "lazy";
+  element.appendChild(source);
 
-                        element.addEventListener("click", function (e) {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          openLightbox(this.currentSrc || this.src, "image");
-                        });
-                      }
+  element.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    openLightbox(filePath, "video");
+  });
 
-                      grid.appendChild(element);
-                    });
+} else {
+  element = document.createElement("img");
+  element.src = encodeURI(filePath);
+  element.alt = `${eventName} ${monthTitle.textContent}`;
+  element.loading = "lazy";
+
+  element.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    openLightbox(filePath, "image");
+  });
+}
+
+grid.appendChild(element);
+                    
 
                   monthDiv.appendChild(grid);
                 });
