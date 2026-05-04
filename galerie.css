@@ -81,7 +81,7 @@ body.galerie .gallery-month h2 {
   padding-bottom: 8px;
 }
 
-.gallery-month h2:: after{
+.gallery-month h2::after{
   content: "";
   display: block;
   width: 80px;
