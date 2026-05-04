@@ -1,71 +1,157 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("gallery-container");
 
-const container = document.getElementById("gallery-container");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxVideo = document.getElementById("lightbox-video");
+  const lightboxClose = document.querySelector(".lightbox-close");
 
-window.toggleMenu = function() {
-  document.getElementById("navLinks").classList.toggle("active");
-};
+  window.toggleMenu = function () {
+    document.getElementById("navLinks").classList.toggle("active");
+  };
 
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const lightboxVideo = document.getElementById("lightbox-video");
+  function formatMonth(folderName) {
+    const [year, month] = folderName.split("-");
+    const date = new Date(year, month - 1);
 
-function openLightbox(src, type) {
-  lightbox.classList.add("active");
-
-  if (type === "video") {
-    lightboxImg.style.display = "none";
-    lightboxVideo.style.display = "block";
-    lightboxVideo.src = src;
-    lightboxVideo.play();
-  } else {
-    lightboxVideo.style.display = "none";
-    lightboxImg.style.display = "block";
-    lightboxImg.src = src;
-  }
-}
-
-lightbox.addEventListener("click", () => {
-  lightbox.classList.remove("active");
-  lightboxVideo.pause();
-});
-
-/* Galerie laden */
-
-fetch("bilder/galerie/gallery.json")
-  .then(res => res.json())
-  .then(data => {
-
-    Object.keys(data).forEach(folder => {
-
-      const grid = document.createElement("div");
-      grid.className = "photo-grid";
-
-      data[folder].forEach(file => {
-
-        const path = `bilder/galerie/${folder}/${file}`;
-        const isVideo = file.match(/\.(mp4|webm)$/i);
-
-        let el;
-
-        if (isVideo) {
-          el = document.createElement("video");
-          el.src = path;
-        } else {
-          el = document.createElement("img");
-          el.src = path;
-        }
-
-        el.addEventListener("click", () => {
-          openLightbox(path, isVideo ? "video" : "image");
-        });
-
-        grid.appendChild(el);
-      });
-
-      container.appendChild(grid);
+    return date.toLocaleString("de-DE", {
+      month: "long",
+      year: "numeric"
     });
+  }
 
+  function openLightbox(src, type = "image") {
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+
+    if (type === "video") {
+      lightboxImg.style.display = "none";
+      lightboxImg.src = "";
+
+      lightboxVideo.style.display = "block";
+      lightboxVideo.src = encodeURI(src);
+      lightboxVideo.load();
+      lightboxVideo.play().catch(() => {});
+    } else {
+      lightboxVideo.pause();
+      lightboxVideo.style.display = "none";
+      lightboxVideo.src = "";
+
+      lightboxImg.style.display = "block";
+      lightboxImg.src = src;
+    }
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+
+    lightboxImg.src = "";
+    lightboxImg.style.display = "none";
+
+    lightboxVideo.pause();
+    lightboxVideo.src = "";
+    lightboxVideo.style.display = "none";
+  }
+
+  lightboxClose.addEventListener("click", closeLightbox);
+
+  lightbox.addEventListener("click", function (e) {
+    if (e.target === lightbox) closeLightbox();
   });
 
+  fetch("bilder/galerie/gallery.json")
+    .then(response => response.json())
+    .then(data => {
+      container.innerHTML = "";
+
+      const years = {};
+
+      Object.keys(data).forEach(folder => {
+        const year = folder.split("-")[0];
+        if (!years[year]) years[year] = [];
+        years[year].push(folder);
+      });
+
+      Object.keys(years)
+        .sort((a, b) => b - a)
+        .forEach(year => {
+          const details = document.createElement("details");
+          details.className = "gallery-year";
+          details.open = true;
+
+          const summary = document.createElement("summary");
+          summary.textContent = year;
+          details.appendChild(summary);
+
+          years[year]
+            .sort((a, b) => new Date(b) - new Date(a))
+            .forEach(folder => {
+              const monthDiv = document.createElement("div");
+              monthDiv.className = "gallery-month";
+
+              const monthTitle = document.createElement("h2");
+              monthTitle.textContent = formatMonth(folder);
+              monthDiv.appendChild(monthTitle);
+
+              Object.keys(data[folder])
+                .sort((a, b) => a.localeCompare(b, "de-DE", { numeric: true }))
+                .forEach(eventName => {
+                  const eventTitle = document.createElement("h3");
+                  eventTitle.className = "gallery-event-title";
+                  eventTitle.textContent = eventName.replaceAll("-", " ");
+                  monthDiv.appendChild(eventTitle);
+
+                  const grid = document.createElement("div");
+                  grid.className = "photo-grid";
+
+                  data[folder][eventName]
+                    .sort((a, b) => a.localeCompare(b, "de-DE", { numeric: true }))
+                    .forEach(file => {
+                      const filePath = `bilder/galerie/${folder}/${eventName}/${file}`;
+                      const isVideo = /\.(mp4|webm|mov)$/i.test(file);
+
+                      let element;
+
+                      if (isVideo) {
+                        element = document.createElement("video");
+                        element.src = encodeURI(filePath);
+                        element.controls = true;
+                        element.preload = "metadata";
+                        element.playsInline = true;
+                        element.muted = true;
+
+                        element.addEventListener("click", function (e) {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          openLightbox(filePath, "video");
+                        });
+                      } else {
+                        element = document.createElement("img");
+                        element.src = filePath;
+                        element.alt = `${eventName} ${monthTitle.textContent}`;
+                        element.loading = "lazy";
+
+                        element.addEventListener("click", function (e) {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          openLightbox(this.currentSrc || this.src, "image");
+                        });
+                      }
+
+                      grid.appendChild(element);
+                    });
+
+                  monthDiv.appendChild(grid);
+                });
+
+              details.appendChild(monthDiv);
+            });
+
+          container.appendChild(details);
+        });
+    })
+    .catch(error => {
+      console.error("Fehler beim Laden der Galerie:", error);
+    });
 });
