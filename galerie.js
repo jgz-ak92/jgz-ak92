@@ -4,9 +4,9 @@ const lightboxImg = document.getElementById("lightbox-img");
 const lightboxVideo = document.getElementById("lightbox-video");
 const lightboxClose = document.querySelector(".lightbox-close");
 
-function toggleMenu() {
+window.toggleMenu = function() {
   document.getElementById("navLinks").classList.toggle("active");
-}
+};
 
 function openLightbox(src, alt, type = "image") {
   lightbox.classList.add("active");
