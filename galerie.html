@@ -90,8 +90,12 @@ function openLightbox(src, alt, type = "image") {
     lightboxImg.src = "";
 
     lightboxVideo.style.display = "block";
-    lightboxVideo.src = src;
-    lightboxVideo.play();
+    lightboxVideo.src = encodeURI(src);
+    lightboxVideo.load();
+
+    lightboxVideo.play().catch(error => {
+    console.log("Video konnte nicht automatisch starten:", error);
+    }
   } else {
     lightboxVideo.pause();
     lightboxVideo.style.display = "none";
@@ -199,7 +203,7 @@ if (isVideo) {
 
   element.appendChild(source);
 
-  element.controls = false;
+  element.controls = true;
   element.preload = "metadata";
   element.muted = true;
   element.playsInline = true;
