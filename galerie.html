@@ -95,7 +95,7 @@ function openLightbox(src, alt, type = "image") {
 
     lightboxVideo.play().catch(error => {
     console.log("Video konnte nicht automatisch starten:", error);
-    }
+    });
   } else {
     lightboxVideo.pause();
     lightboxVideo.style.display = "none";
