@@ -63,19 +63,20 @@ body.galerie section {
 }
 
 .photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  column-count: 3;
+  column-gap: 18px;
 }
 
-.photo-grid img {
+.photo-grid img,
+.photo-grid video {
   width: 100%;
   height: auto;
-  object-fit: contain;
+  display: block;
+  margin-bottom: 18px;
+  break-inside: avoid;
   border-radius: 18px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   cursor: pointer;
-  touch-action: pan-y;
 }
 
 .gallery-year summary::after {
@@ -145,22 +146,24 @@ details[open] summary::after {
   display: none;
 }
 
-.photo-grid video {
-  width: 100%;
-  height: auto;
-  border-radius: 18px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  cursor: pointer;
-}
 
 /* MOBILE */
 @media (max-width: 850px) {
   .photo-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    column-count: 2;
+    column-gap: 14px;
   }
 
-  .photo-grid img {
-    height: 150px;
-    object-fit: cover;
+  .photo-grid img,
+  .photo-grid video {
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  .photo-grid {
+    column-count: 1;
   }
 }
