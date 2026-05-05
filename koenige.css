@@ -10,7 +10,9 @@ body.koenige section {
 }
 
 body.koenige .section-title,
-body.koenige .section-intro,
+body.koenige .section-intro{
+  color: var(--gold);
+}
 
 body.koenige .event {
   background: linear-gradient(135deg, #0b2e23, #144d3a);
