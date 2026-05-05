@@ -1,19 +1,25 @@
+/* Container */
 body.galerie #gallery-container {
   max-width: 1100px;
   margin: 0 auto;
 }
 
-/* Grid */
+/* Masonry via Columns */
 .photo-grid {
   column-count: 3;
-  column-gap: 15px;
+  column-gap: 18px;
 }
 
 .photo-grid img,
 .photo-grid video {
   width: 100%;
-  margin-bottom: 15px;
-  border-radius: 10px;
+  height: auto;
+  display: block;
+  margin-bottom: 18px;
+  break-inside: avoid;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   cursor: pointer;
 }
 
@@ -21,6 +27,12 @@ body.galerie #gallery-container {
 @media (max-width: 850px) {
   .photo-grid {
     column-count: 2;
+    column-gap: 14px;
+  }
+
+  .photo-grid img,
+  .photo-grid video {
+    margin-bottom: 14px;
   }
 }
 
@@ -29,3 +41,105 @@ body.galerie #gallery-container {
     column-count: 1;
   }
 }
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.9);
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img,
+.lightbox video {
+  max-width: 90vw;
+  max-height: 85vh;
+}
+
+/* PFEIL */
+body.galerie .gallery-year > summary::after {
+  content: "▼";
+  float: right;
+  transition: transform 0.2s;
+}
+
+body.galerie .gallery-year[open] summary::after {
+  transform: rotate(180deg);
+}
+
+/* JAHR */
+body.galerie .gallery-year summary {
+   font-family: Arial, Helvetica, sans-serif;
+  color: var(--green);
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 800;
+}
+
+/* EVENT */
+body.galerie .gallery-event-title {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--green);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 700;
+  margin: 10px 0 14px;
+  background: rgba(255,255,255,0.04);
+  padding: 8px 12px;
+  border-bottom: 3px solid var(--green);
+  border-image: linear-gradient(
+    to right,
+    var(--gold),
+    rgba(214,168,79,0.3)
+  ) 1;
+  border-radius: 6px;
+}
+
+/* MONAT */
+body.galerie .gallery-month h2 {
+  font-family: 'OldLondon', cursive;
+  color: var(--gold);
+  font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+  margin: 20px 0 4px;
+  position: relative;
+  padding-bottom: 1px;
+}
+
+body.galerie .gallery-month h2::after{
+  content: "" !important;
+  display: block !important;
+  width: clamp(80px, 20%, 200px) !important;
+  height: 5px !important;
+  background: linear-gradient(
+    to right,
+    var(--gold),
+    rgba(214,168,79,0.3)
+  ) !important;
+  margin-top: 1px !important;
+  border-radius: 999px !important;
+  float: none !important;
+}
+
+@media (max-width: 850px) {
+  body.galerie .subpage-header {
+    min-height: auto;
+  }
+
+  body.galerie .subpage-hero {
+    padding: 90px 20px 50px;
+    min-height: 260px;
+  }
+
+  body.galerie .subpage-hero .section-title {
+    font-size: clamp(2.4rem, 12vw, 4rem);
+    margin-bottom: 14px;
+  }
+
+  body.galerie .subpage-hero p {
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
