@@ -17,15 +17,10 @@ body.koenige section {
 body.koenige .section-title,
 body.koenige .section-intro,
 body.koenige .decade-title {
-  color: var(--gold);
-  font-family: 'OldLondon', cursive;
-  background: var(--green);
-  display: inline-block;
-  padding: 8px 18px;
-  border-radius: 999px;
-  margin: 34px 0 18px;
-  font-size: 2rem;
-  letter-spacing: 1px;
+   font-family: Arial, Helvetica, sans-serif;
+  color: var(--green);
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 800;
 }
 
 body.koenige .event {
