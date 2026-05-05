@@ -37,7 +37,7 @@ header {
   position: relative;
   background: linear-gradient(135deg, var(--green), var(--green-light));
   color: var(--white);
-  min-height: 82vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   border-bottom: 4px solid var(--orange);
