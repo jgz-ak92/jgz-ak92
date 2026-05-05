@@ -64,6 +64,8 @@ body.koenige .decade summary::-webkit-details-marker {
 
 /* DEKADEN-TITEL */
 body.koenige .decade-title {
+  color: var(--gold);
+  font-weight: bold;
   cursor: pointer;
   width: 100%;
   display: block;
