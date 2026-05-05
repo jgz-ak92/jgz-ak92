@@ -1,19 +1,31 @@
-@media (max-width: 850px) {
-  body.koenige .subpage-header {
-    min-height: auto;
-  }
+body.koenige {
+  background: var(--green);
+  color: var(--white);
+}
 
-  body.koenige .subpage-hero {
-    padding: 90px 20px 50px;
-    min-height: 260px;
-  }
+body.koenige .section-title,
+body.koenige .section-intro {
+  color: var(--gold);
+}
 
-  body.koenige .subpage-hero .section-title {
-    font-size: clamp(2.4rem, 12vw, 4rem);
-    margin-bottom: 14px;
-  }
+/* Timeline */
+.timeline {
+  border-left: 2px solid var(--gold);
+  padding-left: 20px;
+}
 
-  body.koenige .subpage-hero p {
-    font-size: 1.15rem;
-    line-height: 1.35;
-  }
+.event {
+  margin-bottom: 20px;
+  padding: 10px;
+  background: linear-gradient(135deg, #0b2e23, #144d3a);
+  border-left: 5px solid var(--gold);
+}
+
+.event-month {
+  font-weight: bold;
+}
+
+.decade-title {
+  font-size: 1.8rem;
+  margin: 30px 0 10px;
+}
