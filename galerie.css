@@ -104,23 +104,3 @@ body.galerie .gallery-month h2::after{
   border-radius: 999px !important;
   float: none !important;
 }
-
-@media (max-width: 850px) {
-  body.galerie .subpage-header {
-    min-height: auto;
-  }
-
-  body.galerie .subpage-hero {
-    padding: 90px 20px 50px;
-    min-height: 260px;
-  }
-
-  body.galerie .subpage-hero .section-title {
-    font-size: clamp(2.4rem, 12vw, 4rem);
-    margin-bottom: 14px;
-  }
-
-  body.galerie .subpage-hero p {
-    font-size: 1.15rem;
-    line-height: 1.35;
-  }
