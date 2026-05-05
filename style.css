@@ -604,10 +604,21 @@ a.btn:hover,
 
 
 @media (max-width: 850px) {
-  body.koenige .subpage-header {
-    min-height: auto;
+ 
+ body.galerie .photo-grid {
+    column-count: 2;
+    column-gap: 14px;
   }
 
+  body.galerie .photo-grid img,
+  body.galerie .photo-grid video {
+    margin-bottom: 14px;
+  }
+
+ body.koenige .subpage-header {
+    min-height: auto;
+  }
+  
   body.koenige .subpage-hero {
     padding: 90px 20px 50px;
     min-height: 260px;
@@ -622,3 +633,9 @@ a.btn:hover,
     font-size: 1.15rem;
     line-height: 1.35;
   }
+
+@media (max-width: 500px) {
+  .photo-grid {
+    column-count: 1;
+  }
+}
