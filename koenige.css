@@ -4,7 +4,7 @@ body.koenige {
 }
 
 body.koenige header {
-  min-height: auto;
+  /* min-height: auto; */
   background: var(--green);
 }
 
