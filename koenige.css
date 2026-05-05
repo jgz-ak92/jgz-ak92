@@ -1,1 +1,64 @@
+body.koenige {
+  background: var(--green);
+  color: var(--white);
+}
+
+body.koenige header {
+  min-height: auto;
+  background: var(--green);
+}
+
+body.koenige main,
+body.koenige section {
+  padding-top: 30px;
+  background: var(--green);
+}
+
+body.koenige .section-title,
+body.koenige .section-intro,
+body.koenige .decade-title {
+  color: var(--gold);
+}
+
+body.koenige .event {
+  background: linear-gradient(135deg, #0b2e23, #144d3a);
+  border-left: 6px solid var(--gold);
+}
+
+.decade-title {
+  font-family: 'OldLondon', cursive;
+  background: var(--green);
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 999px;
+  margin: 34px 0 18px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.king-list,
+.king-highlight {
+  display: grid;
+  gap: 10px;
+}
+
+.king-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: center;
+  background: var(--white);
+  border-left: 6px solid var(--gold);
+  border-radius: 14px;
+  padding: 14px 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.king-row span {
+  font-weight: 800;
+  color: var(--green);
+}
+
+.king-row strong {
+  color: var(--dark);
+}
 
