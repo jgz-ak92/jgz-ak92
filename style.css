@@ -383,8 +383,8 @@ footer {
   color: var(--gold);
 }
 
-.section-title,
-.section-intro {
+header.section-title,
+header.section-intro {
   color: var(--gold);
 }
 
