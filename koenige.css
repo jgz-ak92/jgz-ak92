@@ -16,23 +16,6 @@ body.koenige section {
 
 body.koenige .section-title,
 body.koenige .section-intro,
-body.koenige .decade-title {
-   font-family: Arial, Helvetica, sans-serif;
-  color: var(--green);
-  font-size: clamp(2rem, 4vw, 2.6rem);
-  font-weight: 800;
-}
-
-/* PFEIL */
-body.koenige .decade-title > summary::after {
-  content: "▼";
-  float: right;
-  transition: transform 0.2s;
-}
-
-body.galerie .gallery-year[open] summary::after {
-  transform: rotate(180deg);
-}
 
 body.koenige .event {
   background: linear-gradient(135deg, #0b2e23, #144d3a);
@@ -65,3 +48,56 @@ body.koenige .event {
   color: var(--dark);
 }
 
+/* DEKADE AUF-/ZUKLAPPEN */
+body.koenige .decade details {
+  margin-bottom: 22px;
+}
+
+/* Browser-Standard-Pfeil entfernen */
+body.koenige .decade summary {
+  list-style: none;
+}
+
+body.koenige .decade summary::-webkit-details-marker {
+  display: none;
+}
+
+/* DEKADEN-TITEL */
+body.koenige .decade-title {
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  position: relative;
+  padding-right: 34px;
+}
+
+/* PFEIL */
+body.koenige .decade-title::after {
+  content: "▼";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.25s ease;
+}
+
+/* PFEIL GEDREHT */
+body.koenige .decade details[open] .decade-title::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* WEICHE ANIMATION */
+body.koenige .decade details .timeline {
+  animation: decadeOpen 0.25s ease;
+}
+
+@keyframes decadeOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
