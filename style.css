@@ -47,8 +47,16 @@ header {
 }
 
 .subpage-hero {
-  margin-top: auto;
-  margin-bottom: auto;
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 /* NAVIGATION */
