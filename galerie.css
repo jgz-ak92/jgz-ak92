@@ -23,25 +23,6 @@ body.galerie #gallery-container {
   cursor: pointer;
 }
 
-/* Responsive */
-@media (max-width: 850px) {
-  .photo-grid {
-    column-count: 2;
-    column-gap: 14px;
-  }
-
-  .photo-grid img,
-  .photo-grid video {
-    margin-bottom: 14px;
-  }
-}
-
-@media (max-width: 500px) {
-  .photo-grid {
-    column-count: 1;
-  }
-}
-
 /* LIGHTBOX */
 .lightbox {
   position: fixed;
