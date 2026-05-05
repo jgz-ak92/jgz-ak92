@@ -46,6 +46,11 @@ header {
     0 0 12px rgba(244,161,26,0.25);
 }
 
+.subpage-hero {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 /* NAVIGATION */
 nav {
   display: flex;
