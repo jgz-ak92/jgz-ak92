@@ -9,7 +9,10 @@ body.koenige section {
   background: var(--green);
 }
 
-body.koenige .section-title,
+body.koenige .section-title{
+  color: var(--gold);
+  background: inherit;
+}
 body.koenige .section-intro{
   color: var(--gold);
 }
