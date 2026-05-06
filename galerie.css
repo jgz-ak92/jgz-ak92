@@ -43,8 +43,7 @@ body.galerie #gallery-container {
   max-height: 85vh;
 }
 
-body.galerie .section-title,
-body.galerie .section-intro{
+body.galerie .section-title{
   color: var(--gold);
 }
 
