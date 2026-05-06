@@ -34,12 +34,26 @@ body.other .section-links a:hover {
   transform: scale(1.05);
 }
 
+body.other .section-intro a {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 20px;
+  background-color: var(--gold);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
 body.other .section-intro a:link {
   color: var(--cream);
 }
 
 body.other .section-intro a:visited {
   color: inherit;
+}
+
+body.other .section-intro a:hover {
+  opacity: 0.9;
 }
 
 body.other .event {
