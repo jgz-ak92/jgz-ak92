@@ -43,6 +43,11 @@ body.galerie #gallery-container {
   max-height: 85vh;
 }
 
+body.galerie .section-title,
+body.galerie .section-intro{
+  color: var(--gold);
+}
+
 /* PFEIL */
 body.galerie .gallery-year > summary::after {
   content: "▼";
