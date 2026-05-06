@@ -34,6 +34,14 @@ body.other .section-links a:hover {
   transform: scale(1.05);
 }
 
+body.other .section-intro a:link {
+  color: var(--cream);
+}
+
+body.other .section-intro a:visited {
+  color: inherit;
+}
+
 body.other .event {
   background: linear-gradient(135deg, #0b2e23, #144d3a);
   border-left: 6px solid var(--gold);
