@@ -10,7 +10,7 @@ body.other section {
 }
 
 body.other .section-title {
-  background: inherit
+  background: inherit;
   color: var(--gold);
 }
 
