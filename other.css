@@ -10,11 +10,7 @@ body.other section {
 }
 
 body.other .section-title {
-  font-size: 2rem;
-  color: #ffffff;
-  margin-bottom: 15px;
-  text-align: center;
-  font-weight: bold;
+  color: var(--gold);
 }
 
 body.other .section-links {
