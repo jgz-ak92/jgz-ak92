@@ -131,3 +131,22 @@ body.koenige .timeline .event-month {
     transform: translateY(0);
   }
 }
+
+@media (max-width: 850px) {
+  body.koenige .timeline .event {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  body.koenige .timeline .event-month {
+    justify-self: center;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto 12px;
+  }
+
+  body.koenige .timeline .event-content {
+    width: 100%;
+  }
+}
