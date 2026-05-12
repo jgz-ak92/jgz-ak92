@@ -22,7 +22,7 @@ body.koenige .event {
   border-left: 6px solid var(--gold);
 }
 
-body.koenige .event + .event {
+body.koenige .timeline .event + .event {
   border-top: 2px solid var(--gold);
 }
 
