@@ -26,10 +26,6 @@ body.koenige .timeline .event + .event {
   border-top: 2px solid var(--gold);
 }
 
-body.koenige .event-title {
-  border-top: 2px solid var(--gold);
-}
-
 .king-list,
 .king-highlight {
   display: grid;
