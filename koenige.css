@@ -22,6 +22,10 @@ body.koenige .event {
   border-left: 6px solid var(--gold);
 }
 
+body.koenige .event-content {
+  border-top: 2px solid var (--gold)
+}
+
 .king-list,
 .king-highlight {
   display: grid;
