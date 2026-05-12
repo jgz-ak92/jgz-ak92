@@ -23,7 +23,7 @@ body.koenige .event {
 }
 
 body.koenige .event-title {
-  border-top: 2px solid va(--gold);
+  border-top: 2px solid var(--gold);
 }
 
 .king-list,
