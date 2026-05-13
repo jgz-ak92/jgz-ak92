@@ -98,22 +98,22 @@ body.koenige .decade details .timeline {
 }
 
 body.koenige .timeline .event {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
 }
 
 body.koenige .timeline .event-month {
-  position: static !important;
-  right: auto !important;
-  left: auto !important;
-
-  display: block;
-  width: fit-content;
-
+  display: block !important;
   margin: 0 auto 12px !important;
+  text-align: center !important;
+  width: fit-content !important;
+}
 
-  text-align: center;
+body.koenige .timeline .event-content {
+  width: 100%;
+  text-align: left;
 }
 
 @keyframes decadeOpen {
