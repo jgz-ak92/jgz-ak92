@@ -143,6 +143,42 @@ body.koenige .decade details .timeline {
   animation: decadeOpen 0.25s ease;
 }
 
+/* FIX: Jahr als schmaler Badge, Name linksbündig */
+body.koenige .timeline .event {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
+
+body.koenige .timeline .event-month {
+  align-self: center !important;
+
+  width: auto !important;
+  min-width: 110px;
+
+  display: inline-block !important;
+  text-align: center !important;
+
+  padding: 6px 18px;
+  margin: 0 0 14px 0 !important;
+
+  background: rgba(214, 168, 79, 0.15);
+  border: 1px solid rgba(214, 168, 79, 0.45);
+  border-radius: 999px;
+
+  color: var(--gold);
+  font-weight: 800;
+}
+
+body.koenige .timeline .event-content {
+  width: 100% !important;
+  text-align: left !important;
+}
+
+body.koenige .timeline .event-title {
+  text-align: left !important;
+}
+
 @keyframes decadeOpen {
   from {
     opacity: 0;
@@ -186,6 +222,8 @@ body.koenige .decade details .timeline {
 .king-row strong {
   color: var(--dark);
 }
+
+
 
 /* MOBILE */
 
