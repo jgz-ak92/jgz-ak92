@@ -2,6 +2,11 @@ body.koenige header {
   background: var(--green);
 }
 
+body.koenige .subpage-hero {
+  align-items: center;
+  text-align: center;
+}
+
 body.koenige main,
 body.koenige section {
   padding-top: 30px;
