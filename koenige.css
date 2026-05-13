@@ -22,14 +22,6 @@ body.koenige .event {
   border-left: 6px solid var(--gold);
 }
 
-body.koenige .event-month {
-  margin: 0 auto;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-}
-
 body.koenige .timeline .event + .event {
   border-top: 2px solid var(--gold);
 }
