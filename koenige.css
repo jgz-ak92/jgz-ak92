@@ -2,6 +2,8 @@ body.koenige header {
   background: var(--green);
 }
 
+/* HERO */
+
 body.koenige .subpage-hero {
   align-items: center;
   text-align: center;
@@ -13,7 +15,7 @@ body.koenige section {
   background: var(--green);
 }
 
-/* TITEL & TEXTE */
+/* TITEL */
 
 body.koenige .section-title {
   color: var(--gold);
@@ -32,44 +34,50 @@ body.koenige .timeline {
   gap: 18px;
 }
 
-/* EVENT-KARTE */
+/* EVENT */
 
-body.koenige .event {
+body.koenige .timeline .event {
   display: flex;
   flex-direction: column;
   align-items: center;
 
   background: linear-gradient(135deg, #0b2e23, #144d3a);
-  border-left: 6px solid var(--gold);
 
+  border-left: 6px solid var(--gold);
   border-radius: 16px;
 
-  padding: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  padding: 22px;
+
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
 /* JAHR */
 
 body.koenige .timeline .event-month {
-  align-self: center;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: auto;
+  min-width: 120px;
 
   padding: 6px 18px;
+  margin-bottom: 16px;
 
-  background: rgba(214, 168, 79, 0.15);
-  border: 1px solid rgba(214, 168, 79, 0.4);
+  background: rgba(214,168,79,0.15);
+
+  border: 1px solid rgba(214,168,79,0.45);
   border-radius: 999px;
-  
+
   color: var(--gold);
-  font-weight: 800;
+
   font-size: 1.05rem;
+  font-weight: 800;
 
   text-align: center;
-
-  margin-bottom: 14px;
 }
 
-/* INHALT */
+/* CONTENT */
 
 body.koenige .timeline .event-content {
   width: 100%;
@@ -79,14 +87,16 @@ body.koenige .timeline .event-content {
 /* NAME */
 
 body.koenige .event-title {
-  text-align: left;
   color: var(--white);
-  font-size: 1.1rem;
+
+  font-size: 1.08rem;
   font-weight: 700;
   line-height: 1.5;
+
+  text-align: left;
 }
 
-/* DEKADE AUF-/ZUKLAPPEN */
+/* DEKADEN */
 
 body.koenige .decade details {
   margin-bottom: 22px;
@@ -108,7 +118,7 @@ body.koenige .decade-title {
   color: var(--gold);
 
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 700;
 
   cursor: pointer;
 
@@ -132,7 +142,7 @@ body.koenige .decade-title::after {
   transition: transform 0.25s ease;
 }
 
-/* PFEIL DREHEN */
+/* PFEIL ROTATION */
 
 body.koenige .decade details[open] .decade-title::after {
   transform: translateY(-50%) rotate(180deg);
@@ -142,42 +152,6 @@ body.koenige .decade details[open] .decade-title::after {
 
 body.koenige .decade details .timeline {
   animation: decadeOpen 0.25s ease;
-}
-
-/* FIX: Jahr als schmaler Badge, Name linksbündig */
-body.koenige .timeline .event {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start;
-}
-
-body.koenige .timeline .event-month {
-  align-self: center !important;
-
-  width: auto !important;
-  min-width: 110px;
-
-  display: inline-block !important;
-  text-align: center !important;
-
-  padding: 6px 18px;
-  margin: 0 0 14px 0 !important;
-
-  background: rgba(214, 168, 79, 0.15);
-  border: 1px solid rgba(214, 168, 79, 0.45);
-  border-radius: 999px;
-
-  color: var(--gold);
-  font-weight: 800;
-}
-
-body.koenige .timeline .event-content {
-  width: 100% !important;
-  text-align: left !important;
-}
-
-body.koenige .timeline .event-title {
-  text-align: left !important;
 }
 
 @keyframes decadeOpen {
@@ -192,7 +166,7 @@ body.koenige .timeline .event-title {
   }
 }
 
-/* KING-LISTEN */
+/* KING ROWS */
 
 .king-list,
 .king-highlight {
@@ -212,7 +186,7 @@ body.koenige .timeline .event-title {
 
   padding: 14px 18px;
 
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
 }
 
 .king-row span {
@@ -224,21 +198,20 @@ body.koenige .timeline .event-title {
   color: var(--dark);
 }
 
-
-
 /* MOBILE */
 
 @media (max-width: 850px) {
 
-  body.koenige .event {
+  body.koenige .timeline .event {
     padding: 18px 16px;
   }
 
-  body.koenige .event-title {
-    font-size: 1rem;
+  body.koenige .timeline .event-month {
+    min-width: 100px;
+    font-size: 0.95rem;
   }
 
-  body.koenige .timeline .event-month {
+  body.koenige .event-title {
     font-size: 1rem;
   }
 
