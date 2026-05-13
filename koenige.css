@@ -1,5 +1,4 @@
 body.koenige header {
-  /* min-height: auto; */
   background: var(--green);
 }
 
@@ -9,26 +8,143 @@ body.koenige section {
   background: var(--green);
 }
 
-body.koenige .section-title{
+/* TITEL & TEXTE */
+
+body.koenige .section-title {
   color: var(--gold);
   background: inherit;
 }
-body.koenige .section-intro{
+
+body.koenige .section-intro {
   color: var(--gold);
 }
+
+/* TIMELINE */
+
+body.koenige .timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* EVENT-KARTE */
 
 body.koenige .event {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   background: linear-gradient(135deg, #0b2e23, #144d3a);
   border-left: 6px solid var(--gold);
+
+  border-radius: 16px;
+
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-body.koenige .timeline .event + .event {
-  border-top: 2px solid var(--gold);
+/* JAHR */
+
+body.koenige .timeline .event-month {
+  width: 100%;
+
+  text-align: center;
+
+  font-weight: 800;
+  font-size: 1.05rem;
+
+  color: var(--gold);
+
+  margin-bottom: 14px;
 }
+
+/* INHALT */
+
+body.koenige .timeline .event-content {
+  width: 100%;
+  text-align: center;
+}
+
+/* NAME */
+
+body.koenige .event-title {
+  color: var(--white);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* DEKADE AUF-/ZUKLAPPEN */
+
+body.koenige .decade details {
+  margin-bottom: 22px;
+}
+
+/* STANDARD-PFEIL ENTFERNEN */
+
+body.koenige .decade summary {
+  list-style: none;
+}
+
+body.koenige .decade summary::-webkit-details-marker {
+  display: none;
+}
+
+/* DEKADEN-TITEL */
+
+body.koenige .decade-title {
+  color: var(--gold);
+
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  width: 100%;
+  display: block;
+  position: relative;
+
+  padding: 12px 40px 12px 0;
+}
+
+/* PFEIL */
+
+body.koenige .decade-title::after {
+  content: "▼";
+
+  position: absolute;
+  right: 0;
+  top: 50%;
+
+  transform: translateY(-50%);
+  transition: transform 0.25s ease;
+}
+
+/* PFEIL DREHEN */
+
+body.koenige .decade details[open] .decade-title::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* ANIMATION */
+
+body.koenige .decade details .timeline {
+  animation: decadeOpen 0.25s ease;
+}
+
+@keyframes decadeOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* KING-LISTEN */
 
 .king-list,
 .king-highlight {
@@ -40,11 +156,15 @@ body.koenige .timeline .event + .event {
   display: grid;
   grid-template-columns: 110px 1fr;
   align-items: center;
+
   background: var(--white);
+
   border-left: 6px solid var(--gold);
   border-radius: 14px;
+
   padding: 14px 18px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 .king-row span {
@@ -56,91 +176,24 @@ body.koenige .timeline .event + .event {
   color: var(--dark);
 }
 
-/* DEKADE AUF-/ZUKLAPPEN */
-body.koenige .decade details {
-  margin-bottom: 22px;
-}
-
-/* Browser-Standard-Pfeil entfernen */
-body.koenige .decade summary {
-  list-style: none;
-}
-
-body.koenige .decade summary::-webkit-details-marker {
-  display: none;
-}
-
-/* DEKADEN-TITEL */
-body.koenige .decade-title {
-  color: var(--gold);
-  font-weight: bold;
-  cursor: pointer;
-  width: 100%;
-  display: block;
-  position: relative;
-  padding-right: 34px;
-}
-
-/* PFEIL */
-body.koenige .decade-title::after {
-  content: "▼";
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: transform 0.25s ease;
-}
-
-/* PFEIL GEDREHT */
-body.koenige .decade details[open] .decade-title::after {
-  transform: translateY(-50%) rotate(180deg);
-}
-
-/* WEICHE ANIMATION */
-body.koenige .decade details .timeline {
-  animation: decadeOpen 0.25s ease;
-}
-
-body.koenige .timeline .event-month {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto 12px;
-  text-align: center;
-  width: 100%;
-}
-
-body.koenige .timeline .event-content {
-  width: 100%;
-  text-align: left;
-}
-
-@keyframes decadeOpen {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* MOBILE */
 
 @media (max-width: 850px) {
-  body.koenige .timeline .event {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
+
+  body.koenige .event {
+    padding: 18px 16px;
+  }
+
+  body.koenige .event-title {
+    font-size: 1rem;
   }
 
   body.koenige .timeline .event-month {
-    justify-self: center;
-    text-align: center;
-    width: 100%;
-    margin: 0 auto 12px;
+    font-size: 1rem;
   }
 
-  body.koenige .timeline .event-content {
-    width: 100%;
+  body.koenige .decade-title {
+    font-size: 1.05rem;
   }
+
 }
