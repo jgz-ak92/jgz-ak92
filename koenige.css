@@ -51,14 +51,19 @@ body.koenige .event {
 /* JAHR */
 
 body.koenige .timeline .event-month {
-  width: 100%;
+  display: inline-block;
 
-  text-align: center;
+  padding: 6px 18px;
 
+  background: rgba(214, 168, 79, 0.15);
+  border: 1px solid rgba(214, 168, 79, 0.4);
+  border-radius: 999px;
+  
+  color: var(--gold);
   font-weight: 800;
   font-size: 1.05rem;
 
-  color: var(--gold);
+  text-align: center;
 
   margin-bottom: 14px;
 }
