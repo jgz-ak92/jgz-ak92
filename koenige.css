@@ -18,13 +18,10 @@ body.koenige .section-intro{
 }
 
 body.koenige .event {
-  background: linear-gradient(135deg, #0b2e23, #144d3a);
-  border-left: 6px solid var(--gold);
-}
-
-body.koenige .kings-event {
   display: flex;
   justify-content: center;
+  background: linear-gradient(135deg, #0b2e23, #144d3a);
+  border-left: 6px solid var(--gold);
 }
 
 body.koenige .timeline .event + .event {
@@ -100,13 +97,6 @@ body.koenige .decade details[open] .decade-title::after {
 /* WEICHE ANIMATION */
 body.koenige .decade details .timeline {
   animation: decadeOpen 0.25s ease;
-}
-
-body.koenige .timeline .event {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
 }
 
 body.koenige .timeline .event-month {
