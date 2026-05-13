@@ -232,7 +232,7 @@ body.koenige .timeline .event-title {
 @media (max-width: 850px) {
 
   body.koenige .timeline .event {
-    padding: 18px 16px;
+    padding: 68px 16px 18px 16px !important;
   }
 
   body.koenige .timeline .event-month {
