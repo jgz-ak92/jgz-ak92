@@ -100,10 +100,12 @@ body.koenige .decade details .timeline {
 }
 
 body.koenige .timeline .event-month {
-  display: block !important;
-  margin: 0 auto 12px !important;
-  text-align: center !important;
-  width: fit-content !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 12px;
+  text-align: center;
+  width: fit-content;
 }
 
 body.koenige .timeline .event-content {
