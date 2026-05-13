@@ -51,6 +51,7 @@ body.koenige .event {
 /* JAHR */
 
 body.koenige .timeline .event-month {
+  align-self: center;
   display: inline-block;
 
   padding: 6px 18px;
