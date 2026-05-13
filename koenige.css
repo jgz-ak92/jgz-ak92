@@ -147,7 +147,7 @@ body.koenige .decade details .timeline {
 body.koenige .timeline .event {
   display: flex !important;
   flex-direction: column !important;
-  align-items: stretch !important;
+  align-items: flex-start;
 }
 
 body.koenige .timeline .event-month {
