@@ -19,7 +19,9 @@ body.koenige .section-intro{
 
 body.koenige .event {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  
   background: linear-gradient(135deg, #0b2e23, #144d3a);
   border-left: 6px solid var(--gold);
 }
