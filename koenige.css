@@ -108,17 +108,17 @@ body.koenige .decade details .timeline {
 body.koenige .timeline .event {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
 }
 
 body.koenige .timeline .event-month {
   position: static !important;
   right: auto !important;
   left: auto !important;
-  margin: 0 auto !important;
-  align-self: start;
-  width: 45%;
+  margin: 0 auto 12px !important;
+  width: fit-content;
   text-align: center;
+  justify-content: center;
 }
 
 @keyframes decadeOpen {
