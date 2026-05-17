@@ -13,6 +13,13 @@ function loadRotatingBanner() {
   const banner = document.createElement("div");
   banner.className = "banner";
 
+banner.style.background = "red";
+banner.style.color = "white";
+banner.style.padding = "20px";
+banner.style.fontSize = "24px";
+banner.style.position = "relative";
+banner.style.zIndex = "9999";
+
   const textSpan = document.createElement("span");
   textSpan.className = "banner-slide-text";
 
