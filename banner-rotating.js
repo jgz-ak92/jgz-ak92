@@ -24,7 +24,7 @@ function loadRotatingBanner() {
     textSpan.classList.add("slide-out");
 
     setTimeout(() => {
-      TextSpan.innerHTML = messages[index];
+      textSpan.innerHTML = messages[index];
       textSpan.classList.remove("slide-out");
 
       // Animation sicher neu starten
