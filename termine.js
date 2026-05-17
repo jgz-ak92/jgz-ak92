@@ -1,5 +1,5 @@
 const termine = [
-  {
+ /* {
     monat: "Mai 2026",
     items: [
       {
@@ -8,7 +8,7 @@ const termine = [
         ort: "Alter Sportplatz Hoisten"
       }
     ]
-  },
+  }, */
   {
     monat: "Juni 2026",
     items: [
