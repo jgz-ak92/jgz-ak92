@@ -1,15 +1,12 @@
 function loadRotatingBanner() {
+
   const messages = [
     "🍻 Schützenfest 19.06. – 24.06. – Wir freuen uns auf euch! 🍻",
-    "BREAKING NEWS!!! Wir haben einen neuen Zugkönig...👑 Herzlichen Glückwunsch, Sascha II. Vidahl 👑"
-  ];
-
-  /* const messages = [
-    "🍻 Schützenfest 19.06. – 24.06. – Wir freuen uns auf euch! 🍻",
     "Wir haben einen neuen Zugkönig...👑 Sascha II. Vidahl 👑",
-    "BREAKING NEWS!!! Ein neuer Corpskönig wurde ebenfalls ermittelt...👑 Herzlichen Glückwunsch,  👑
+"BREAKING NEWS!!! Auch die Damen haben auf den Vogel geschossen! Herzlichen Glückwunsch, 👑 Julia Pulver 👑
+    " Ein neuer Corpskönig wurde ebenfalls ermittelt, er erringt die Würde bereits zum 2. Mal... Alles Gute, 👑 Sven I. Rommerskirchen 👑
   ];
- */
+ 
   
   let index = 0;
 
