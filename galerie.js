@@ -131,8 +131,8 @@ function formatEventTitle(name) {
 
               // 👉 EVENTS durchgehen
               Object.keys(data[folder])
-                .sort((a, b) => a.localeCompare(b, "de-DE", { numeric: true }))
-                .forEach(eventName => {
+  .sort((a, b) => b.localeCompare(a, "de-DE", { numeric: true }))
+  .forEach(eventName => {
 
                   const eventTitle = document.createElement("h3");
                   eventTitle.className = "gallery-event-title";
