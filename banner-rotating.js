@@ -1,10 +1,10 @@
 function loadRotatingBanner() {
 
   const messages = [
-    "🍻 Schützenfest 19.06. – 24.06. – Wir freuen uns auf euch! 🍻",
+    "🍻 Schützenfest 19.06. – 24.06. –<br>Wir freuen uns auf euch! 🍻",
     "Wir haben einen neuen Zugkönig...<br>👑 Sascha II. Vidahl 👑",
 "BREAKING NEWS!!! Auch die Damen haben auf den Vogel geschossen! Herzlichen Glückwunsch, 👑 Julia Pulver 👑",
-    " Ein neuer Corpskönig wurde ebenfalls ermittelt, er erringt die Würde bereits zum 2. Mal... Alles Gute, 👑 Sven I. Rommerskirchen 👑 "
+    " Ein neuer Corpskönig wurde ebenfalls ermittelt, er erringt die Würde bereits zum 2. Mal...<br>Alles Gute, 👑 Sven I. Rommerskirchen 👑 "
   ];
  
   
