@@ -1,99 +1,102 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Mitglieder | Alte Kameraden</title>
-  <meta name="description" content="Mitglieder des Jägerzugs Alte Kameraden AK92." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="banner.css">
-  <link rel="stylesheet" href="mitglieder.css">
+<title>Mitglieder | Alte Kameraden</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mitglieder.css">
+
 </head>
+
 
 <body>
 
-<header id="start">
 
-  <nav>
-    <div class="nav-inner">
+<header>
 
-      <div class="nav-title"></div>
+<nav>
 
-      <div class="burger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+<div class="nav-inner">
 
-      <div class="nav-links" id="navLinks">
-        <a href="index.html">Start</a>
-        <a href="index.html#termine">Termine</a>
-        <a href="galerie.html">Galerie</a>
-        <a href="mitglieder.html">Mitglieder</a>
-        <a href="other.html">Sonstiges</a>
-        <a href="index.html#kontakt">Kontakt</a>
-      </div>
+<div class="nav-links">
 
-    </div>
-  </nav>
+<a href="index.html">Start</a>
+<a href="galerie.html">Galerie</a>
+<a href="mitglieder.html">Mitglieder</a>
+<a href="other.html">Sonstiges</a>
+
+</div>
+
+</div>
+
+</nav>
 
 </header>
+
 
 
 <main>
 
 <section class="mitglieder-section">
 
-  <div class="container">
-
-    <h1 class="section-title">Unsere Mitglieder</h1>
-
-    <p class="section-intro">
-      Die Mitglieder des Jägerzugs Alte Kameraden AK92.
-    </p>
+<div class="container">
 
 
-    <div class="mitglieder-grid" id="mitglieder-container">
-
-      <!-- Mitglieder werden automatisch aus mitglieder.json geladen -->
-
-    </div>
+<h1 class="section-title">
+Unsere Mitglieder
+</h1>
 
 
-  </div>
+<div 
+class="mitglieder-grid"
+id="mitglieder-container">
+</div>
+
+
+</div>
 
 </section>
+
 
 </main>
 
 
+
+
+<!-- Lightbox -->
+
+<div id="lightbox">
+
+<span class="lightbox-close">
+×
+</span>
+
+<img id="lightbox-img">
+
+</div>
+
+
+
 <footer>
 
-  <div class="footer-inner">
+<div class="footer-inner">
 
-    <div>
-      © 2026 Jägerzug Alte Kameraden AK92
-    </div>
+© 2026 Jägerzug Alte Kameraden AK92
 
-    <div class="footer-links">
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-    </div>
-
-  </div>
+</div>
 
 </footer>
 
 
-<script>
-function toggleMenu() {
-  document.getElementById("navLinks").classList.toggle("active");
-}
-</script>
 
 <script src="mitglieder.js"></script>
 
+
 </body>
+
 </html>
