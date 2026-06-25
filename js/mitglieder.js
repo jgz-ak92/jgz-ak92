@@ -26,11 +26,7 @@ function formatName(text) {
 function formatEintritt(eintritt) {
     if (!eintritt) return "";
 
-    if (eintritt.length > 4) {
-        return eintritt.substring(0, 4) + "<br>" + eintritt.substring(4);
-    }
-
-    return eintritt;
+    return eintritt.replace(/^(\d{4})\s*(.*)$/,"$1<br>$2");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -79,7 +75,7 @@ card.className =
 card.innerHTML = `
 
 <img 
-src="${mitglied.bild}"
+src="../${encodeURI(mitglied.bild)}"
 alt="${mitglied.name}"
 loading="lazy">
 
@@ -111,7 +107,7 @@ img.addEventListener(
 lightbox.classList.add("active");
 
 lightboxImg.src =
-mitglied.bild;
+encodeURI("../" + mitglied.bild);
 
 });
 
