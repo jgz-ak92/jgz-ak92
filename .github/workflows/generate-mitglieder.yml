@@ -25,7 +25,7 @@ jobs:
           import json
 
           base = "bilder/mitglieder"
-          allowed = (".jpg", ".jpeg", ".png", ".webp")
+          allowed = (".jpg", ".jpeg", ".png", ".webp", ".svg")
 
 
           def format_text(text):
