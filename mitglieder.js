@@ -2,12 +2,11 @@ function formatFunktion(text) {
     if (!text) return "";
 
     return text
-        .replace(/oe/g, "ö")
-        .replace(/ae/g, "ä")
-        .replace(/ue/g, "ü")
-        .replace(/-und-/g, " & ")
-        .toLowerCase()
-        .replace(/(^|[\s&-])([a-zäöü])/g, function(match, trennzeichen, buchstabe) {
+        .replace(/oe/gi, "ö")
+        .replace(/ae/gi, "ä")
+        .replace(/ue/gi, "ü")
+        .replace(/-und-/gi, " & ")
+        .replace(/(^|[\s&-])([a-zäöüß])/g, function(match, trennzeichen, buchstabe) {
             return trennzeichen + buchstabe.toUpperCase();
         });
 }
@@ -19,8 +18,7 @@ function formatName(text) {
         .replace(/oe/g, "ö")
         .replace(/ae/g, "ä")
         .replace(/ue/g, "ü")
-        .toLowerCase()
-        .replace(./(^|[-\s(])([a-zäöü])/g, function(match, trennzeichen, buchstabe) {
+        .replace(/(^|[-\s(])([a-zäöüß])/g, function(match, trennzeichen, buchstabe) {
             return trennzeichen + buchstabe.toUpperCase();
         });
 }
