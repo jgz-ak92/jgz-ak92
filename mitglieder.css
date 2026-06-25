@@ -1,0 +1,76 @@
+.mitglieder-section {
+  padding: 60px 20px;
+}
+
+
+.mitglieder-grid {
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+
+  margin-top: 40px;
+
+}
+
+
+.mitglied-card {
+
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+
+  border-left: 6px solid var(--gold);
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+  transition: transform .2s ease;
+
+}
+
+
+.mitglied-card:hover {
+
+  transform: translateY(-5px);
+
+}
+
+
+.mitglied-card img {
+
+  width: 100%;
+  height: 280px;
+
+  object-fit: cover;
+
+}
+
+
+.mitglied-info {
+
+  padding: 20px;
+  text-align: center;
+
+}
+
+
+.mitglied-info h3 {
+
+  margin: 0;
+
+  color: var(--green);
+
+  font-weight: 800;
+
+}
+
+
+.mitglied-info p {
+
+  margin-top: 8px;
+
+  color: #555;
+
+  font-weight: 600;
+
+}
