@@ -1,27 +1,50 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  const container = document.getElementById("mitglieder-container");
+
+
   fetch("mitglieder.json")
     .then(response => response.json())
     .then(mitglieder => {
 
-      const container = document.getElementById("mitglieder-container");
+      container.innerHTML = "";
 
-      mitglieder.forEach(mitglied => {
 
-        const card = document.createElement("div");
-        card.className = "mitglied-card";
+      mitglieder
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .forEach(mitglied => {
 
-        card.innerHTML = `
-          <img src="${mitglied.bild}" alt="${mitglied.name}">
-          <div class="mitglied-info">
-            <h3>${mitglied.name}</h3>
-            <p>${mitglied.funktion}</p>
-          </div>
-        `;
 
-        container.appendChild(card);
+          const card = document.createElement("div");
+          card.className = "mitglied-card";
 
-      });
+
+          card.innerHTML = `
+
+            <img 
+              src="${mitglied.bild}" 
+              alt="${mitglied.name}"
+              loading="lazy"
+            >
+
+            <div class="mitglied-info">
+
+              <h3>${mitglied.name}</h3>
+
+              <p>${mitglied.funktion}</p>
+
+              <small>
+                Mitglied seit ${mitglied.eintritt}
+              </small>
+
+            </div>
+
+          `;
+
+
+          container.appendChild(card);
+
+        });
 
     })
     .catch(error => {
