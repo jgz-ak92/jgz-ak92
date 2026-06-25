@@ -1,10 +1,8 @@
 function loadRotatingBanner() {
 
   const messages = [
-    "Schützenfest 19.06. – 24.06.<br>🍻 Wir freuen uns auf euch! 🍻",
-    "Wir haben einen neuen Zugkönig...<br>👑 Sascha II. Vidahl 👑",
-"BREAKING NEWS!!! Auch die Damen haben auf den Vogel geschossen! Herzlichen Glückwunsch, 👑 Julia Pulver 👑",
-    " Ein neuer Corpskönig wurde ebenfalls ermittelt, er erringt die Würde bereits zum 2. Mal...<br>Alles Gute, 👑 Sven I. Rommerskirchen 👑 "
+    "Schützenfest 2026<br>☀️ Brutal heiß, aber es war trotzdem wieder schön ☀️",
+    "BREAKING NEWS!!! Wir haben einen neuen Kronprinzen, Björn II. '"Stocki"' Stockdreher",
   ];
  
   
