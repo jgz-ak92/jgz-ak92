@@ -20,7 +20,7 @@ function formatName(text) {
         .replace(/ae/g, "ä")
         .replace(/ue/g, "ü")
         .toLowerCase()
-        .replace(/(^|[-\s(])([a-zäöü])/g, function(match, trennzeichen, buchstabe) {
+        .replace(./(^|[-\s(])([a-zäöü])/g, function(match, trennzeichen, buchstabe) {
             return trennzeichen + buchstabe.toUpperCase();
         });
 }
