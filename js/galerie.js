@@ -147,7 +147,7 @@ function formatEventTitle(name) {
                     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
                     .forEach(file => {
 
-                      const filePath = `bilder/galerie/${folder}/${eventName}/${file}`;
+                      const filePath = `../bilder/galerie/${folder}/${eventName}/${file}`;
                       const isVideo = /\.(mp4|webm|mov)$/i.test(file);
 
                       let element;
