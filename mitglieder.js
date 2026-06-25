@@ -11,6 +11,17 @@ function formatFunktion(text) {
             return trennzeichen + buchstabe.toUpperCase();
         });
 }
+
+function formatEintritt(eintritt) {
+    if (!eintritt) return "";
+
+    if (eintritt.length > 4) {
+        return eintritt.substring(0, 4) + "<br>" + eintritt.substring(4);
+    }
+
+    return eintritt;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
 
@@ -69,7 +80,7 @@ loading="lazy">
 <p>${formatFunktion(mitglied.funktion)}</p>
 
 <small>
-Mitglied seit ${mitglied.eintritt}
+Mitglied seit ${formatEintritt(mitglied.eintritt)}
 </small>
 
 </div>
