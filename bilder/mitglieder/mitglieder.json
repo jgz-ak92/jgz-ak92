@@ -1,17 +1,8 @@
 [
   {
-    "name": "Sascha II. Vidahl",
-    "funktion": "Zugkönig",
-    "bild": "bilder/mitglieder/sascha-vidahl.jpg"
-  },
-  {
-    "name": "Sven I. Rommerskirchen",
-    "funktion": "Corpskönig",
-    "bild": "bilder/mitglieder/sven-rommerskirchen.jpg"
-  },
-  {
-    "name": "Björn II. Stockdreher",
-    "funktion": "Kronprinz",
-    "bild": "bilder/mitglieder/bjoern-stockdreher.jpg"
+    "name": "Christopher Kißmer",
+    "funktion": "Schuetze Arsch",
+    "eintritt": "2025",
+    "bild": "bilder/mitglieder/christopher-kißmer_Schuetze Arsch_2025.jpg"
   }
 ]
