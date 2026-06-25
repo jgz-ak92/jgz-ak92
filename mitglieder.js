@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("mitglieder-container");
 
 
-  fetch("mitglieder.json")
+  fetch("bilder/mitglieder/mitglieder.json")
     .then(response => response.json())
     .then(mitglieder => {
 
