@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   const container = document.getElementById("mitglieder-container");
-
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
 
   fetch("bilder/mitglieder/mitglieder.json")
     .then(response => response.json())
