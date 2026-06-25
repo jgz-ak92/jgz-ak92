@@ -1,1 +1,88 @@
+name: Update mitglieder index
 
+on:
+  push:
+    paths:
+      - "bilder/mitglieder/**"
+      - ".github/workflows/generate-mitglieder.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-mitglieder:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository laden
+        uses: actions/checkout@v4
+
+      - name: mitglieder.json erzeugen
+        run: |
+          python3 <<'PY'
+          import os, json
+
+          base = "bilder/mitglieder"
+          allowed = (".jpg", ".jpeg", ".png", ".webp")
+
+          rang_namen = {
+              "Zugkoenig": "Zugkönig",
+              "Corpskoenig": "Corpskönig",
+              "Kronprinz": "Kronprinz",
+              "Mitglied": "Mitglied"
+          }
+
+          mitglieder = []
+
+          if os.path.exists(base):
+
+              for file in sorted(os.listdir(base)):
+
+                  if not file.lower().endswith(allowed):
+                      continue
+
+                  name_datei = os.path.splitext(file)[0]
+
+                  teile = name_datei.split("_")
+
+                  if len(teile) < 3:
+                      continue
+
+                  name_raw = teile[0]
+                  rang_raw = teile[1]
+                  eintritt = teile[2]
+
+                  name = " ".join(
+                      wort.capitalize()
+                      for wort in name_raw.split("-")
+                  )
+
+                  funktion = rang_namen.get(rang_raw, rang_raw)
+
+                  mitglieder.append({
+                      "name": name,
+                      "funktion": funktion,
+                      "eintritt": eintritt,
+                      "bild": f"bilder/mitglieder/{file}"
+                  })
+
+
+          with open(os.path.join(base, "mitglieder.json"), "w", encoding="utf-8") as f:
+              json.dump(mitglieder, f, ensure_ascii=False, indent=2)
+
+          PY
+
+      - name: Änderungen speichern
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add bilder/mitglieder/mitglieder.json
+
+          if git diff --cached --quiet; then
+            echo "Keine Änderungen."
+          else
+            git commit -m "Update mitglieder index"
+            git push
+          fi
