@@ -33,6 +33,12 @@ fetch("bilder/mitglieder/mitglieder.json")
 
 .then(mitglieder => {
 
+    mitglieder.sort((a, b) => {
+    const sortA = parseInt(a.bild.match(/_(\d+)\.[^.]+$/)?.[1] || 999);
+    const sortB = parseInt(b.bild.match(/_(\d+)\.[^.]+$/)?.[1] || 999);
+
+    return sortA - sortB;
+});
 
 mitglieder.forEach(mitglied => {
 
