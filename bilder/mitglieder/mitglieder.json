@@ -1,5 +1,11 @@
 [
   {
+    "name": "Jan Niklas Reitz (obi)",
+    "funktion": "Schütze Arsch",
+    "eintritt": "2016 (bereits von 2002-2014)",
+    "bild": "bilder/mitglieder/Jan-Niklas-reitz (obi)_Schütze Arsch_2016 (bereits von 2002-2014)_09..svg"
+  },
+  {
     "name": "Christian Meuter (wirbel)",
     "funktion": "schütze Arsch",
     "eintritt": "1997",
@@ -22,6 +28,12 @@
     "funktion": "Spieß & 2. Kassierer",
     "eintritt": "2019",
     "bild": "bilder/mitglieder/jupp-pesch_Spieß-und-2. Kassierer_2019_03.jpg"
+  },
+  {
+    "name": "Manfred Tholl",
+    "funktion": "Schütze Arsch",
+    "eintritt": "2019",
+    "bild": "bilder/mitglieder/manfred-tholl_Schütze Arsch_2019.svg"
   },
   {
     "name": "Niklas Pulver",
@@ -52,5 +64,11 @@
     "funktion": "Oberleutnant",
     "eintritt": "2008",
     "bild": "bilder/mitglieder/stefan-kauffmann_Oberleutnant_2008_01.jpeg"
+  },
+  {
+    "name": "Stefan Meuter",
+    "funktion": "Schütze Arsch",
+    "eintritt": "1993",
+    "bild": "bilder/mitglieder/stefan-meuter_Schütze Arsch_1993_06.svg"
   }
 ]
