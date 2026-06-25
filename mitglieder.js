@@ -12,6 +12,19 @@ function formatFunktion(text) {
         });
 }
 
+function formatName(text) {
+    if (!text) return "";
+
+    return text
+        .replace(/oe/g, "ö")
+        .replace(/ae/g, "ä")
+        .replace(/ue/g, "ü")
+        .toLowerCase()
+        .replace(/(^|[-\s(])([a-zäöü])/g, function(match, trennzeichen, buchstabe) {
+            return trennzeichen + buchstabe.toUpperCase();
+        });
+}
+
 function formatEintritt(eintritt) {
     if (!eintritt) return "";
 
@@ -75,7 +88,7 @@ loading="lazy">
 
 <div class="mitglied-info">
 
-<h3>${mitglied.name}</h3>
+<h3>${formatName(mitglied.name)}</h3>
 
 <p>${formatFunktion(mitglied.funktion)}</p>
 
