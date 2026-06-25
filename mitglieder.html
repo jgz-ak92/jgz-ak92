@@ -1,27 +1,44 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Mitglieder | Alte Kameraden</title>
+  <meta name="description" content="Mitglieder des Jägerzugs Alte Kameraden AK92." />
 
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="banner.css">
   <link rel="stylesheet" href="mitglieder.css">
 </head>
 
 <body>
 
-<header>
+<header id="start">
+
   <nav>
     <div class="nav-inner">
-      <div class="nav-links">
+
+      <div class="nav-title"></div>
+
+      <div class="burger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="nav-links" id="navLinks">
         <a href="index.html">Start</a>
+        <a href="index.html#termine">Termine</a>
         <a href="galerie.html">Galerie</a>
         <a href="mitglieder.html">Mitglieder</a>
         <a href="other.html">Sonstiges</a>
+        <a href="index.html#kontakt">Kontakt</a>
       </div>
+
     </div>
   </nav>
+
 </header>
 
 
@@ -38,52 +55,12 @@
     </p>
 
 
-    <div class="mitglieder-grid">
+    <div class="mitglieder-grid" id="mitglieder-container">
 
-
-      <div class="mitglied-card">
-
-        <img src="bilder/mitglieder/sascha-vidahl.jpg"
-             alt="Sascha Vidahl">
-
-        <div class="mitglied-info">
-          <h3>Sascha II. Vidahl</h3>
-          <p>Zugkönig</p>
-        </div>
-
-      </div>
-
-
-      <div class="mitglied-card">
-
-        <img src="bilder/mitglieder/sven-rommerskirchen.jpg"
-             alt="Sven Rommerskirchen">
-
-        <div class="mitglied-info">
-          <h3>Sven I. Rommerskirchen</h3>
-          <p>Corpskönig</p>
-        </div>
-
-      </div>
-
-
-      <div class="mitglied-card">
-
-        <img src="bilder/mitglieder/bjoern-stockdreher.jpg"
-             alt="Björn Stockdreher">
-
-        <div class="mitglied-info">
-          <h3>Björn II. Stockdreher</h3>
-          <p>Kronprinz</p>
-        </div>
-
-      </div>
-
-
-      <!-- weitere Mitglieder hier ergänzen -->
-
+      <!-- Mitglieder werden automatisch aus mitglieder.json geladen -->
 
     </div>
+
 
   </div>
 
@@ -93,11 +70,30 @@
 
 
 <footer>
+
   <div class="footer-inner">
-    <div>© 2026 Jägerzug Alte Kameraden AK92</div>
+
+    <div>
+      © 2026 Jägerzug Alte Kameraden AK92
+    </div>
+
+    <div class="footer-links">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+
   </div>
+
 </footer>
 
+
+<script>
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+<script src="mitglieder.js"></script>
 
 </body>
 </html>
