@@ -90,7 +90,7 @@ function formatEventTitle(name) {
   return title.replace(/(^|\s)[a-zäöü]/g, char => char.toUpperCase());
 }
   
-  fetch("https://github.com/jgz-ak92/jgz-ak92/blob/main/bilder/galerie/gallery.json")
+  fetch("../bilder/galerie/gallery.json")
     .then(response => response.json())
     .then(data => {
 
