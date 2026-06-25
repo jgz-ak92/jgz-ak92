@@ -6,9 +6,11 @@ function formatFunktion(text) {
         .replace(/ae/g, "ä")
         .replace(/ue/g, "ü")
         .replace(/-und-/g, " & ")
-        .replace(/\b\w/g, buchstabe => buchstabe.toUpperCase());
+        .toLowerCase()
+        .replace(/(^|[\s&-])([a-zäöü])/g, function(match, trennzeichen, buchstabe) {
+            return trennzeichen + buchstabe.toUpperCase();
+        });
 }
-
 document.addEventListener("DOMContentLoaded", () => {
 
 
