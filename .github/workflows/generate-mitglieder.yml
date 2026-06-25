@@ -21,10 +21,27 @@ jobs:
       - name: mitglieder.json erzeugen
         run: |
           python3 <<'PY'
-          import os, json
+          import os
+          import json
 
           base = "bilder/mitglieder"
           allowed = (".jpg", ".jpeg", ".png", ".webp")
+
+
+          def format_text(text):
+
+              ersetzungen = {
+                  "oe": "ö",
+                  "ae": "ä",
+                  "ue": "ü",
+                  "-und-": " & "
+              }
+
+              for alt, neu in ersetzungen.items():
+                  text = text.replace(alt, neu)
+
+              return text
+
 
           rang_namen = {
               "Zugkoenig": "Zugkönig",
@@ -33,7 +50,9 @@ jobs:
               "Mitglied": "Mitglied"
           }
 
+
           mitglieder = []
+
 
           if os.path.exists(base):
 
@@ -42,39 +61,64 @@ jobs:
                   if not file.lower().endswith(allowed):
                       continue
 
+
                   name_datei = os.path.splitext(file)[0]
 
                   teile = name_datei.split("_")
 
+
                   if len(teile) < 3:
                       continue
+
 
                   name_raw = teile[0]
                   rang_raw = teile[1]
                   eintritt = teile[2]
+
 
                   name = " ".join(
                       wort.capitalize()
                       for wort in name_raw.split("-")
                   )
 
-                  funktion = rang_namen.get(rang_raw, rang_raw)
+
+                  funktion = rang_namen.get(
+                      rang_raw,
+                      rang_raw
+                  )
+
+                  funktion = format_text(funktion)
+
 
                   mitglieder.append({
+
                       "name": name,
                       "funktion": funktion,
                       "eintritt": eintritt,
                       "bild": f"bilder/mitglieder/{file}"
+
                   })
 
 
-          with open(os.path.join(base, "mitglieder.json"), "w", encoding="utf-8") as f:
-              json.dump(mitglieder, f, ensure_ascii=False, indent=2)
+          with open(
+              os.path.join(base, "mitglieder.json"),
+              "w",
+              encoding="utf-8"
+          ) as f:
+
+              json.dump(
+                  mitglieder,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
 
           PY
 
+
       - name: Änderungen speichern
         run: |
+
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
