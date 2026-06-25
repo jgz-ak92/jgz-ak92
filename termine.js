@@ -10,16 +10,6 @@ const termine = [
     ]
   }, */
   {
-    monat: "Juni 2026",
-    items: [
-      {
-        datum: "19.06.2026 - 24.06.2026",
-        titel: "Schützenfest",
-        ort: "Weitere Informationen werden rechtzeitig bekanntgegeben."
-      }
-    ]
-  },
-  {
     monat: "Juli 2026",
     items: [
       {
