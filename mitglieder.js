@@ -1,3 +1,14 @@
+function formatFunktion(text) {
+    if (!text) return "";
+
+    return text
+        .replace(/oe/g, "ö")
+        .replace(/ae/g, "ä")
+        .replace(/ue/g, "ü")
+        .replace(/-und-/g, " & ")
+        .replace(/\b\w/g, buchstabe => buchstabe.toUpperCase());
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
 
@@ -47,7 +58,7 @@ loading="lazy">
 
 <h3>${mitglied.name}</h3>
 
-<p>${mitglied.funktion}</p>
+<p>${formatFunktion(mitglied.funktion)}</p>
 
 <small>
 Mitglied seit ${mitglied.eintritt}
