@@ -51,7 +51,7 @@ document.querySelector(".lightbox-close");
 
 
 
-fetch("bilder/mitglieder/mitglieder.json")
+fetch("../bilder/mitglieder/mitglieder.json")
 
 .then(response => response.json())
 
