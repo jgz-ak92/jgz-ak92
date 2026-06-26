@@ -55,7 +55,9 @@ text-align:center;
 
 }
 
-
+body.mitglieder .section-title{
+  color: var(--gold);
+}
 
 .mitglied-info h3 {
 
