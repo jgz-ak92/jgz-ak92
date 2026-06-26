@@ -2,7 +2,7 @@ function loadRotatingBanner() {
 
   const messages = [
     "Schützenfest 2026<br>☀️ Brutal heiß, aber es war trotzdem wieder schön ☀️",
-    "BREAKING NEWS!!! Wir haben einen neuen Kronprinzen, Björn II. \"Stocki\" Stockdreher",
+    "BREAKING NEWS!!! Wir haben einen neuen Kronprinzen, Björn II. \"Stocki\" Stockdreher<br>👑 Herzlichen Glückwunsch 👑",
   ];
  
   
