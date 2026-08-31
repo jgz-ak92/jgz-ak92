@@ -10,12 +10,12 @@ const termine = [
     ]
   }, */
   {
-    monat: "Juli 2026",
+    monat: "September 2026",
     items: [
       {
-        datum: "18.07.2026",
-        titel: "Bezirkskönigsschießen",
-        ort: "Alter Sportplatz Hoisten"
+        datum: "26.09.2026",
+        titel: "Zugversammlung",
+        ort: "noch nicht bekannt"
       }
     ]
   },
