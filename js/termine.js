@@ -15,7 +15,7 @@ const termine = [
       {
         datum: "26.09.2026",
         titel: "Zugversammlung",
-        ort: "noch nicht bekannt"
+        ort: "Vereinsheim DJK Germanias Hoisten"
       }
     ]
   },
